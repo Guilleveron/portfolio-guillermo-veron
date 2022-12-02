@@ -56,12 +56,11 @@
           <img class="w-8 h-8" src="~assets/icon/instagram.svg"
         /></a>
       </div>
-      <div class="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-        <div>Copyright © {{ new Date().getFullYear() }}</div>
-        <div>•</div>
-        <a href="/"
-          >{{ siteMetadata.author }}'s blog - {{ siteMetadata.slogan }}</a
-        >
+      <div class="flex mb-2 space-x-2 px-2 text-center text-sm text-gray-500 dark:text-gray-400">
+        Copyright © {{ new Date().getFullYear() }} &nbsp;•&nbsp;{{
+          siteMetadata.author
+        }}
+        - {{ siteMetadata.slogan }}
       </div>
       <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
         <a

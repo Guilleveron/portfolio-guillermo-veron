@@ -1,9 +1,9 @@
 <template>
   <!-- Section 1 -->
-  <section class="w-full px-6 pb-12 antialiased bg-white">
+  <section class="w-full pb-8 antialiased bg-white">
     <div class="mx-auto max-w-8xl">
       <TheHeader />
-      <Nuxt />
+      <Nuxt class="px-6" />
       <TheFooter />
     </div>
   </section>
