@@ -9,7 +9,7 @@
             <Folder class="text-indigo-800"></Folder>
           </div>
           <div class="flex flex-row justify-between">
-            <div class="mx-1">
+            <div class="mx-1" v-if="projectHref !== '#'">
               <a
                 class="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"

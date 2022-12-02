@@ -1,6 +1,6 @@
-# NuxtJs Tailwind Blog
+# My portfolio
 
-This is a nuxtjs, Tailwind CSS blogging template. Its supported Markdown for blog
+This is a nuxtjs, Tailwind CSS blogging template.
 ![Drag Racing](thumbnail.png)
 
 # Examples/Demo
@@ -13,7 +13,7 @@ This is a nuxtjs, Tailwind CSS blogging template. Its supported Markdown for blo
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:3200
 $ npm run dev
 
 ```

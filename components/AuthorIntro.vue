@@ -38,9 +38,8 @@ export default {
 
   methods: {
     redirect() {
-      console.log("hola");
       const link = document.createElement("a");
-      link.href = "/Cv Guillermo Verón.pdf";
+      link.href = "Cv Guillermo Verón.pdf";
       //link.download = "Cv Guillermo Verón.pdf";
       link.target = "_blank";
       link.click();
