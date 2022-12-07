@@ -1,13 +1,12 @@
 const siteMetadata = {
-  title: 'Md Solaiaman | Software Developer',
-  author: 'Md Solaiman',
+  title: 'Guillermo Verón | Software Developer',
+  author: 'Guillermo Verón',
   author_image: '/author.png',
   position: 'Full Stack Developer',
-  location: 'Dhaka, Bangladesh',
+  location: 'Luque, Paraguay',
   headerTitle: 'Guillermo Verón',
-  slogan: "Let's start coding",
-  description:
-    'A tech enthusiast & self taught learner. Love to talk the way of tech.',
+  slogan: 'Coding the future',
+  description: 'Passionate about technology & self taught learner.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: '#',
@@ -22,7 +21,7 @@ const siteMetadata = {
   twitter_user: 'guilleVeron98',
   stackoverflow: '#',
   youtube: '#',
-  linkedin: '#',
+  linkedin: 'https://www.linkedin.com/in/guillermo-v-b029bb10a/',
   facebook: 'https://www.facebook.com/guillermo.veronfernandez.3/',
   instagram: 'https://www.instagram.com/veronguillermo/',
   biggie: 'https://biggie.com.py/',
