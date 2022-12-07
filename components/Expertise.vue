@@ -85,6 +85,11 @@
           ></a>
         </li>
         <li class="flex items-center hover:scale-125 duration-200 ease-in">
+          <a href="https://www.docker.com/" target="_blank" alt="Git"
+            ><Docker class="h-10 w-10"></Docker
+          ></a>
+        </li>
+        <li class="flex items-center hover:scale-125 duration-200 ease-in">
           <a href="https://git-scm.com/" target="_blank" alt="Git"
             ><Git class="h-10 w-10"></Git
           ></a>
@@ -122,6 +127,7 @@ import Typescript from "../assets/devicon/typescript.svg?inline";
 import Sass from "../assets/devicon/sass.svg?inline";
 import Jetstream from "../assets/devicon/jetstream.svg?inline";
 import Git from "../assets/devicon/git.svg?inline";
+import Docker from "../assets/devicon/docker.svg?inline";
 export default {
   components: {
     Javascript,
@@ -141,6 +147,7 @@ export default {
     Sass,
     Jetstream,
     Git,
+    Docker,
   },
 };
 </script>
