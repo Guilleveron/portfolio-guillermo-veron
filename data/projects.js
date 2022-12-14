@@ -101,7 +101,7 @@ const projectsData = [
     title: 'Frontend of the website monicionesliturgicas.com',
     description: `SPA for public access at monicionesliturgicas.com`,
     imgSrc: '',
-    href: '#',
+    href: 'https://frontendmonicionesliturgicas.fly.dev/',
     github: 'https://github.com/Guilleveron/FrontEndMonicionesLiturgicas',
     tech: [
       { data: 'Vue js' },
