@@ -84,7 +84,7 @@ const projectsData = [
     title: 'Personal website',
     description: `First version of my personal website, showing my projects, experiences, skills and tastes.`,
     imgSrc: '',
-    href: '#',
+    href: 'https://guilleveron.github.io/portfolio-guillermo-veron/',
     github: 'https://github.com/Guilleveron/portfolio-guillermo-veron',
     tech: [
       { data: 'Nuxt js' },
