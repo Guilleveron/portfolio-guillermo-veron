@@ -42,8 +42,8 @@
         >
           Development and maintenance of a system for medium-sized companies, as
           well as an electronic wallet in a fintech company. <br />
-          Technologies used: Php, Laravel, Java, SpringBoot, Javascript, Node js, Jetstream, Mysql, Vuetify,
-          Css, Sass, Tailwind, Bootstrap, Html5, Git, Github and Bitbucket.
+          Technologies used: Php, Laravel, Java, SpringBoot, Javascript, Node js, Jetstream, Mysql,
+          Css, Sass, Tailwind, Bootstrap, Html5, Git, Github.
         </p>
       </li>
       <li class="hover:shadow-lg rounded-lg px-2 mb-10 ml-6">
