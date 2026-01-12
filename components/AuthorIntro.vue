@@ -5,16 +5,16 @@
     >
       {{ t("welcome.title") }}
     </h2>
-    <p class="mt-8 mb-4 dark:bg-gray-800 dark:text-blue-200 text-justify">
+    <p class="mt-8 mb-4 dark:text-blue-200 text-justify">
       {{ t("welcome.description") }}
       <button
         type="button"
         @click="redirect"
-        class="px-2 py-2 group bg-transparent text-indigo-600 font-medium text-xs leading-tight rounded hover:text-indigo-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-0 active:bg-gray-200 transition duration-150 ease-in-out inline-flex align-center"
+        class="px-2 py-2 group bg-transparent text-indigo-600 dark:text-indigo-400 font-medium text-xs leading-tight rounded hover:text-indigo-700 dark:hover:text-indigo-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:bg-gray-100 dark:focus:bg-gray-700 focus:outline-none focus:ring-0 active:bg-gray-200 dark:active:bg-gray-600 transition duration-150 ease-in-out inline-flex align-center"
       >
         {{ t("welcome.link") }}
         <ArrowTopRight
-          class="w-3 h-3 ml-1 text-indigo-600 group-hover:text-indigo-700 transition"
+          class="w-3 h-3 ml-1 text-indigo-600 dark:text-indigo-400 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition"
         />
       </button>
     </p>
