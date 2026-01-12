@@ -6,7 +6,7 @@
       <div class="p-6">
         <div class="flex flex-row justify-between items-center">
           <div class="my-2">
-          <img class="w-6 h-6" src="/icon/folder.svg?inline"/>
+          <img class="w-6 h-6" :src="withBase('/icon/folder.svg?inline')"/>
           </div>
           <div class="flex flex-row justify-between">
             <div class="mx-1" v-if="href !== '#'">
@@ -16,7 +16,7 @@
                 rel="noopener noreferrer"
                 :href="href"
               ><span class="sr-only"></span
-                ><img class="w-6 h-6" src="/icon/external.svg?inline"
+                ><img class="w-6 h-6" :src="withBase('/icon/external.svg?inline')"
               /></a>
             </div>
             <div class="mx-1" v-if="github !== '#'">
@@ -26,7 +26,7 @@
                 rel="noopener noreferrer"
                 :href="github"
                 ><span class="sr-only">github</span
-                ><img class="w-6 h-6" src="/icon/github_new.svg?inline"
+                ><img class="w-6 h-6" :src="withBase('/icon/github_new.svg?inline')"
               /></a>
             </div>
           </div>
@@ -53,6 +53,8 @@
 </template>
 
 <script setup>
+const { withBase } = useBaseUrl()
+
 defineProps({
   title: String,
   description: String,

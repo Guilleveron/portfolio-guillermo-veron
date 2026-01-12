@@ -10,7 +10,7 @@
           title="GitHub"
         >
           <span class="sr-only">github</span>
-          <img class="w-8 h-8" src="/icon/github_new.svg" />
+          <img class="w-8 h-8" :src="withBase('/icon/github_new.svg')" />
         </a>
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
@@ -20,7 +20,7 @@
           title="LinkedIn"
         >
           <span class="sr-only">Linkedin</span>
-          <img class="w-8 h-8" src="/icon/linkeding.svg" />
+          <img class="w-8 h-8" :src="withBase('/icon/linkeding.svg')" />
         </a>
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
@@ -30,7 +30,7 @@
           title="Email"
         >
           <span class="sr-only">mail</span>
-          <img class="w-8 h-8" src="/icon/mail.svg"/>
+          <img class="w-8 h-8" :src="withBase('/icon/mail.svg')"/>
         </a>
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
@@ -40,7 +40,7 @@
           title="Twitter"
         >
           <span class="sr-only">twitter</span>
-         <img class="w-8 h-8" src="/icon/twitterBlack.svg" />
+         <img class="w-8 h-8" :src="withBase('/icon/twitterBlack.svg')" />
         </a>
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
@@ -50,7 +50,7 @@
           title="Facebook"
         >
           <span class="sr-only">facebook</span>
-          <img class="w-8 h-8" src="/icon/facebook.svg"/>
+          <img class="w-8 h-8" :src="withBase('/icon/facebook.svg')"/>
         </a>
         <!-- <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
@@ -58,7 +58,7 @@
           rel="noopener noreferrer"
           :href="siteMetadata.youtube"
           ><span class="sr-only">youtube</span>
-          <img class="w-8 h-8" src="/icon/youtube.svg"
+          <img class="w-8 h-8" :src="withBase('/icon/youtube.svg"
         /></a> -->
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
@@ -68,7 +68,7 @@
           title="Instagram"
         >
           <span class="sr-only">instagram</span>
-          <img class="w-8 h-8" src="/icon/instagram.svg"/>
+          <img class="w-8 h-8" :src="withBase('/icon/instagram.svg')"/>
         </a>
       </div>
       <div class="flex mb-2 space-x-2 px-2 text-center text-sm text-gray-500 dark:text-gray-400">
@@ -90,6 +90,7 @@
 
 <script setup>
 const { t } = useI18n()
+const { withBase } = useBaseUrl()
 const appConfig = useAppConfig()
 const siteMetadata = appConfig.siteMetadata
 </script>

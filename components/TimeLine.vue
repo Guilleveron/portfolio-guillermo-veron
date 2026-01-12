@@ -12,7 +12,7 @@
         >
           <img
             class="w-3 h-3 text-blue-600 dark:text-blue-400"
-            src="/icon/code.svg"
+            :src="withBase('/icon/code.svg')"
           />
         </span>
         <h3
@@ -51,6 +51,7 @@
 
 <script setup>
 const { t, tm, rt } = useI18n()
+const { withBase } = useBaseUrl()
 
 const jobs = computed(() => {
   const jobsData = tm('jobs')

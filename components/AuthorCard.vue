@@ -2,7 +2,7 @@
   <div class="md:fixed">
     <div class="md:block flex justify-center items-center">
       <img
-        :src="siteMetadata.author_image"
+        :src="withBase(siteMetadata.author_image)"
         loading="lazy"
         alt="me"
         class="shadow-xl md:h-60 md:w-60 md:m-auto sm:h-40 sm:w-40 h-28 w-28 rounded-full hover:animate-[wiggle_1s_ease-in-out_infinite]"
@@ -27,15 +27,15 @@
 
     <div class="mx-7 hidden md:block">
       <div class="my-2 text-gray-600 flex dark:text-blue-100">
-        <img src="/icon/mail.svg" alt="mail" class="w-6 h-6 mr-2" />
+        <img :src="withBase('/icon/mail.svg')" alt="mail" class="w-6 h-6 mr-2" />
         <a :href="`mailto:${siteMetadata.email}`"> {{ siteMetadata.email }}</a>
       </div>
       <div class="my-2 text-gray-600 flex dark:text-blue-100">
-        <img src="/icon/glob.svg" alt="location" class="w-6 h-6 mr-2" />
+        <img :src="withBase('/icon/glob.svg')" alt="location" class="w-6 h-6 mr-2" />
         <p>{{ siteMetadata.location }}</p>
       </div>
       <div class="my-2 text-gray-600 flex dark:text-blue-200">
-        <img src="/icon/github_new.svg" alt="github" class="w-6 h-6 mr-2" />
+        <img :src="withBase('/icon/github_new.svg')" alt="github" class="w-6 h-6 mr-2" />
         <a :href="siteMetadata.github"> {{ siteMetadata.githubUser }}</a>
       </div>
     </div>
@@ -43,6 +43,7 @@
 </template>
 
 <script setup>
+const { withBase } = useBaseUrl()
 const appConfig = useAppConfig()
 const siteMetadata = appConfig.siteMetadata
 </script>

@@ -10,7 +10,7 @@
       <ul class="flex flex-wrap gap-4 items-center">
         <li v-for="skill in skills" :key="skill.name" class="flex items-center hover:scale-125 duration-200 ease-in">
           <a :href="skill.url" target="_blank" :alt="skill.name" :title="skill.name">
-            <img :src="skill.icon" :alt="skill.name" class="h-10 w-10 object-contain" />
+            <img :src="withBase(skill.icon)" :alt="skill.name" class="h-10 w-10 object-contain" />
           </a>
         </li>
       </ul>
@@ -21,5 +21,6 @@
 <script setup>
 const { t } = useI18n()
 const appConfig = useAppConfig()
+const { withBase } = useBaseUrl()
 const skills = appConfig.skills
 </script>

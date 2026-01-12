@@ -12,7 +12,7 @@
         >
           <img
             class="w-3 h-3 text-blue-600 dark:text-blue-400"
-            src="/icon/academy.svg"
+            :src="withBase('/icon/academy.svg')"
           />
         </span>
         <h3
@@ -40,6 +40,7 @@
 
 <script setup>
 const { t, tm, rt } = useI18n()
+const { withBase } = useBaseUrl()
 
 const educations = computed(() => {
   const educationsData = tm('educations')
