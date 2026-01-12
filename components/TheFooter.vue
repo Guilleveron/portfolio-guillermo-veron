@@ -7,57 +7,72 @@
           target="_blank"
           rel="noopener noreferrer"
           :href="siteMetadata.github"
-          ><span class="sr-only">github</span>
-          <img class="w-8 h-8" src="~assets/icon/github_new.svg" /> </a
-        ><a
+          title="GitHub"
+        >
+          <span class="sr-only">github</span>
+          <img class="w-8 h-8" src="/icon/github_new.svg" />
+        </a>
+        <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
           target="_blank"
           rel="noopener noreferrer"
           :href="siteMetadata.linkedin"
-          ><span class="sr-only">Linkedin</span>
-          <img class="w-8 h-8" src="~assets/icon/linkeding.svg" /> </a
-        ><a
+          title="LinkedIn"
+        >
+          <span class="sr-only">Linkedin</span>
+          <img class="w-8 h-8" src="/icon/linkeding.svg" />
+        </a>
+        <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
           target="_blank"
           rel="noopener noreferrer"
           :href="`mailto:${siteMetadata.email}`"
-          ><span class="sr-only">mail</span>
-          <img class="w-8 h-8" src="~assets/icon/mail.svg"
-        /></a>
+          title="Email"
+        >
+          <span class="sr-only">mail</span>
+          <img class="w-8 h-8" src="/icon/mail.svg"/>
+        </a>
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
           target="_blank"
           rel="noopener noreferrer"
           :href="siteMetadata.twitter"
-          ><span class="sr-only">twitter</span>
-          <img class="w-8 h-8" src="~assets/icon/twitterBlack.svg" /></a
-        ><a
+          title="Twitter"
+        >
+          <span class="sr-only">twitter</span>
+         <img class="w-8 h-8" src="/icon/twitterBlack.svg" />
+        </a>
+        <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
           target="_blank"
           rel="noopener noreferrer"
           :href="siteMetadata.facebook"
-          ><span class="sr-only">facebook</span>
-          <img class="w-8 h-8" src="~assets/icon/facebook.svg"
-        /></a>
+          title="Facebook"
+        >
+          <span class="sr-only">facebook</span>
+          <img class="w-8 h-8" src="/icon/facebook.svg"/>
+        </a>
         <!-- <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
           target="_blank"
           rel="noopener noreferrer"
           :href="siteMetadata.youtube"
           ><span class="sr-only">youtube</span>
-          <img class="w-8 h-8" src="~assets/icon/youtube.svg"
+          <img class="w-8 h-8" src="/icon/youtube.svg"
         /></a> -->
         <a
           class="text-sm text-gray-500 transition hover:text-gray-600"
           target="_blank"
           rel="noopener noreferrer"
           :href="siteMetadata.instagram"
-          ><span class="sr-only">instagram</span>
-          <img class="w-8 h-8" src="~assets/icon/instagram.svg"
-        /></a>
+          title="Instagram"
+        >
+          <span class="sr-only">instagram</span>
+          <img class="w-8 h-8" src="/icon/instagram.svg"/>
+        </a>
       </div>
       <div class="flex mb-2 space-x-2 px-2 text-center text-sm text-gray-500 dark:text-gray-400">
-        Copyright © {{ new Date().getFullYear() }} &nbsp;•&nbsp;{{
+        {{ t("footer.copyright") }} {{ new Date().getFullYear() }} &nbsp;•&nbsp;{{
           siteMetadata.author
         }}
         - {{ siteMetadata.slogan }}
@@ -73,14 +88,8 @@
   </footer>
 </template>
 
-<script>
-import siteMetaInfo from "@/data/sitemetainfo";
-export default {
-  data() {
-    return {
-      siteMetadata: siteMetaInfo,
-    };
-  },
-  components: {},
-};
+<script setup>
+const { t } = useI18n()
+const appConfig = useAppConfig()
+const siteMetadata = appConfig.siteMetadata
 </script>

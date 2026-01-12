@@ -3,5 +3,12 @@
 @tailwind utilities;
 
 .nuxt-link-exact-active {
-  @apply text-blue-500;
+  color: rgb(59, 130, 246);
 }
+
+/* Test background */
+body {
+  background-color: #ffffff;
+}
+
+

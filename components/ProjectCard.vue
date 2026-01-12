@@ -6,44 +6,44 @@
       <div class="p-6">
         <div class="flex flex-row justify-between items-center">
           <div class="my-2">
-            <Folder class="text-indigo-800"></Folder>
+          <img class="w-6 h-6" src="/icon/folder.svg?inline"/>
           </div>
           <div class="flex flex-row justify-between">
-            <div class="mx-1" v-if="projectHref !== '#'">
+            <div class="mx-1" v-if="href !== '#'">
               <a
                 class="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                :href="projectHref"
-                ><span class="sr-only"></span
-                ><img class="w-6 h-6" src="~assets/icon/external.svg"
+                :href="href"
+              ><span class="sr-only"></span
+                ><img class="w-6 h-6" src="/icon/external.svg?inline"
               /></a>
             </div>
-            <div class="mx-1" v-if="projectGithub !== '#'">
+            <div class="mx-1" v-if="github !== '#'">
               <a
                 class="text-sm text-gray-500 transition hover:text-gray-600"
                 target="_blank"
                 rel="noopener noreferrer"
-                :href="projectGithub"
+                :href="github"
                 ><span class="sr-only">github</span
-                ><img class="w-6 h-6" src="~assets/icon/github_new.svg"
+                ><img class="w-6 h-6" src="/icon/github_new.svg?inline"
               /></a>
             </div>
           </div>
         </div>
         <h2 class="text-2xl font-bold leading-8 tracking-tight mb-3">
-          {{ projectTitle }}
+          {{ title }}
         </h2>
         <p
           class="prose leading-normal text-gray-500 max-w-none dark:text-gray-400 mb-3"
         >
-          {{ projectDescription }}
+          {{ description }}
         </p>
 
         <div class="flex flex-row justify-between">
           <div class="text-gray-400 text-sm font-extralight">
-            <span v-for="(item, index) in projectTech">
-              {{ item.data }} {{ index + 1 < projectTech.length ? "•" : "" }}
+            <span v-for="(item, index) in tech">
+              {{ item.data }} {{ index + 1 < tech.length ? "•" : "" }}
             </span>
           </div>
         </div>
@@ -52,27 +52,20 @@
   </div>
 </template>
 
-<script>
-import Folder from "../assets/icon/folder.svg?inline";
-import External from "../assets/icon/external.svg?inline";
-import Github from "../assets/icon/github.svg?inline";
-export default {
-  props: ["title", "description", "href", "github", "tech"],
-  components: {
-    Folder,
-    External,
-    Github,
+<script setup>
+defineProps({
+  title: String,
+  description: String,
+  href: {
+    type: String,
+    default: '#'
   },
-  data() {
-    return {
-      projectTitle: this.title,
-      projectDescription: this.description,
-      projectHref: this.href,
-      projectGithub: this.github,
-      projectTech: this.tech,
-    };
+  github: {
+    type: String,
+    default: '#'
   },
-};
+  tech: Array
+});
 </script>
 
 <style></style>

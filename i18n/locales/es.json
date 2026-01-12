@@ -1,0 +1,227 @@
+{
+  "welcome": {
+    "title": "👋 ¡Hola, bienvenido!",
+    "description": "Soy Guillermo, una persona que ama la tecnología y busca constantemente crear software que mejore la vida de tantas personas como sea posible. Me especializo en crear software para clientes que van desde individuos y pequeñas empresas hasta grandes corporaciones empresariales. He desarrollado productos específicos que resuelven las necesidades comerciales de mis clientes. He trabajado en desarrollo de software, front-end/back-end web, ux/ui y gestión de bases de datos. Tengo un espíritu apasionado que junto con mis habilidades naturales para resolver problemas me ayudan a alcanzar mis sueños y deseos. Nunca estoy satisfecho con solo soñar, sino que tengo una necesidad innata de hacerlos realidad actuando en consecuencia paso a paso. Tengo una muy buena capacidad para aprender y adquirir nuevas habilidades. Puedes leer más detalles sobre mi biografía, experiencias, habilidades y estudios",
+    "link": "AQUÍ",
+    "cv": "CV_Español_Guillermo_Verón.pdf"
+  },
+  "language": {
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "sections": {
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "currently": "Actualmente"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Algunos de los proyectos que he construido o en los que he participado."
+  },
+  "footer": {
+    "copyright": "Copyright ©"
+  },
+  "menu": [
+    { "name": "Inicio", "path": "/" },
+    { "name": "Proyectos", "path": "/projects" }
+  ],
+  "jobs": [
+    {
+      "title": "Jefe de Desarrollo",
+      "company": "Encom",
+      "url": "https://encom.app/",
+      "period": "Jul 2023 - Presente | Jefe de Desarrollo desde Feb. 2025",
+      "current": true,
+      "description": "Lidero el Departamento de Desarrollo, siendo responsable del mantenimiento, mejora continua y desarrollo de nuevas funcionalidades para la plataforma SaaS en producción de la empresa, diseñada para pequeñas y medianas empresas. El sistema incluye un panel administrativo, soluciones de punto de venta (web y aplicación móvil), integraciones de pago, facturación electrónica (Paraguay) y e-commerce. Superviso el liderazgo técnico del equipo, el diseño arquitectónico y aseguro la calidad, rendimiento y escalabilidad del sistema. Además, desarrollo y mantengo FACSIS, una aplicación de facturación electrónica destinada a la adopción masiva en Paraguay, construida como una Web App usando Next.js, TypeScript y PostgreSQL, y compilada con Capacitor.\nTecnologías: PHP, Laravel, Java, Spring Boot, JavaScript, Node.js, Jetstream, MySQL, PostgreSQL, Next.js, React.js, TypeScript, CSS, SASS, Tailwind, Bootstrap, HTML5, Git, GitHub, Capacitor."
+    },
+    {
+      "title": "Ingeniero de Software",
+      "company": "Code100",
+      "url": "https://code100.com.py/",
+      "period": "Enero 2023 - Junio 2023",
+      "current": false,
+      "description": "Desarrollo y mantenimiento de sistemas de facturación digital e integración con sistemas externos vía Api, DB y Middleware.\nTecnologías utilizadas: Java, SpringBoot, Javascript, Node js, Php, Laravel, PostgreSQL, Mysql, Bootstrap, Css, Html5, Git, Gitlab, Trello, Slack."
+    },
+    {
+      "title": "Ingeniero de Software",
+      "company": "Biggie Express",
+      "url": "http://www.biggie.com.py/",
+      "period": "Marzo 2022 - Diciembre 2022",
+      "current": false,
+      "description": "Desarrollo y mantenimiento de e-commerce, administración y call center de la empresa.\nTecnologías utilizadas: Nuxt Js, Vue js, Angular, Javascript, Php, Laravel, Jetstream, Mysql, Vuetify, Css, Sass, Tailwind, Bootstrap, Html5, Git, Github y Bitbucket."
+    },
+    {
+      "title": "Desarrollador Web Freelancer",
+      "company": "",
+      "url": "#",
+      "period": "Lanzado el 14 de marzo de 2020",
+      "current": false,
+      "description": "Desarrollo de software para empresas pequeñas y grandes.\nTecnologías utilizadas: Node js, Java, Vue js, Javascript, Mysql, PostgreSQL, Php, Html5, Css, Sass, Bootstrap."
+    }
+  ],
+  "educations": [
+    {
+      "degree": "Licenciatura en Ingeniería en Análisis de Sistemas Informáticos",
+      "university": "Universidad del Desarrollo Sustentable",
+      "url": "https://uds.edu.py/grado/ingenieria-en-analisis-de-sistemas-informaticos-",
+      "period": "Marzo 2020 - Presente"
+    },
+    {
+      "degree": "Contador Público",
+      "university": "Universidad del Desarrollo Sustentable",
+      "url": "https://uds.edu.py/grado/contaduria-publica-nacional",
+      "period": "2016 - 2020"
+    }
+  ],
+  "projectsList": [
+    {
+      "title": "E-commerce en Biggie Express",
+      "description": "Desarrollo de soluciones para proyectos comerciales. Análisis de requisitos de productos digitales. Implementación de arquitecturas y desarrollo Full Stack. Estudio y mejora del rendimiento, implementación de nuevas funcionalidades y corrección de errores del sitio web.",
+      "imgSrc": "",
+      "href": "http://www.biggie.com.py/",
+      "github": "#",
+      "tech": [
+        { "data": "Nuxt js" },
+        { "data": "Vue js" },
+        { "data": "Javascript" },
+        { "data": "Vuetify" },
+        { "data": "Typescript" },
+        { "data": "Sass" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "Git" },
+        { "data": "Bitbucket" }
+      ]
+    },
+    {
+      "title": "Aplicación de publicidad en tiendas locales",
+      "description": "Aplicación web (CRUD) de banners publicitarios para mostrar en las tiendas de la empresa Biggie Express. (proyecto no autorizado para exhibición pública)",
+      "imgSrc": "",
+      "href": "https://banners-sucursales.fly.dev/",
+      "github": "https://github.com/Guilleveron/banners-sucursales",
+      "tech": [
+        { "data": "Laravel" },
+        { "data": "Php" },
+        { "data": "Jetstream" },
+        { "data": "jQuery" },
+        { "data": "Javascript" },
+        { "data": "Tailwind" },
+        { "data": "Mysql" },
+        { "data": "Sass" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "Postman" },
+        { "data": "Git" },
+        { "data": "Bitbucket" }
+      ]
+    },
+    {
+      "title": "Aplicación de gestión",
+      "description": "Desarrollo y mantenimiento de la aplicación de administración de la empresa Biggie Express. (proyecto no autorizado para exhibición pública)",
+      "imgSrc": "",
+      "href": "https://admin.app.biggie.com.py/",
+      "github": "#",
+      "tech": [
+        { "data": "Angular js" },
+        { "data": "Javascript" },
+        { "data": "Typescript" },
+        { "data": "Bootstrap" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "API" },
+        { "data": "Git" },
+        { "data": "Bitbucket" }
+      ]
+    },
+    {
+      "title": "Aplicación web de call center",
+      "description": "Desarrollo y mantenimiento de aplicación web hecha en Angular js para uso del personal del call center en la empresa Biggie Express. (proyecto no autorizado para exhibición pública)",
+      "imgSrc": "",
+      "href": "https://callcenter.app.biggie.com.py/",
+      "github": "#",
+      "tech": [
+        { "data": "Angular js" },
+        { "data": "Javascript" },
+        { "data": "Typescript" },
+        { "data": "Bootstrap" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "API" },
+        { "data": "Git" },
+        { "data": "Bitbucket" }
+      ]
+    },
+    {
+      "title": "Sitio web personal",
+      "description": "Primera versión de mi sitio web personal, mostrando mis proyectos, experiencias, habilidades y gustos.",
+      "imgSrc": "",
+      "href": "https://guilleveron.github.io/portfolio-guillermo-veron/",
+      "github": "https://github.com/Guilleveron/portfolio-guillermo-veron",
+      "tech": [
+        { "data": "Nuxt js" },
+        { "data": "Vue js" },
+        { "data": "Javascript" },
+        { "data": "Tailwind" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "Git" },
+        { "data": "Github" }
+      ]
+    },
+    {
+      "title": "Frontend del sitio web monicionesliturgicas.com",
+      "description": "SPA para acceso público en monicionesliturgicas.com",
+      "imgSrc": "",
+      "href": "https://frontendmonicionesliturgicas.fly.dev/",
+      "github": "https://github.com/Guilleveron/FrontEndMonicionesLiturgicas",
+      "tech": [
+        { "data": "Vue js" },
+        { "data": "Javascript" },
+        { "data": "Bootstrap" },
+        { "data": "Sass" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "Git" },
+        { "data": "Github" }
+      ]
+    },
+    {
+      "title": "Administrador del sitio web monicioneslitúrgicas.com",
+      "description": "Backend de la página monicionesliturgicas.com",
+      "imgSrc": "",
+      "href": "https://backendmonicionesliturgicas.fly.dev/",
+      "github": "https://github.com/Guilleveron/BankEndMonicionesLiturgicas",
+      "tech": [
+        { "data": "Node js" },
+        { "data": "Express js" },
+        { "data": "Vue js" },
+        { "data": "Mysql" },
+        { "data": "Javascript" },
+        { "data": "Bootstrap" },
+        { "data": "Sass" },
+        { "data": "Css" },
+        { "data": "Html5" },
+        { "data": "Git" },
+        { "data": "Github" }
+      ]
+    },
+    {
+      "title": "API construida con Node Js",
+      "description": "API hecha para la página monicionesliturgicas.com",
+      "imgSrc": "",
+      "href": "https://apimonicionesliturgicas.fly.dev/api/moniciones",
+      "github": "https://github.com/Guilleveron/ApiMonicionesLiturgicas",
+      "tech": [
+        { "data": "Node js" },
+        { "data": "Express js" },
+        { "data": "Mysql" },
+        { "data": "Javascript" },
+        { "data": "Docker" },
+        { "data": "Postman" },
+        { "data": "Git" },
+        { "data": "Github" }
+      ]
+    }
+  ]
+}

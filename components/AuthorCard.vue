@@ -1,7 +1,7 @@
 <template>
   <div class="md:fixed">
     <div class="md:block flex justify-center items-center">
-      <nuxt-img
+      <img
         :src="siteMetadata.author_image"
         loading="lazy"
         alt="me"
@@ -27,32 +27,22 @@
 
     <div class="mx-7 hidden md:block">
       <div class="my-2 text-gray-600 flex dark:text-blue-100">
-        <Mail />
+        <img src="/icon/mail.svg" alt="mail" class="w-6 h-6 mr-2" />
         <a :href="`mailto:${siteMetadata.email}`"> {{ siteMetadata.email }}</a>
       </div>
       <div class="my-2 text-gray-600 flex dark:text-blue-100">
-        <Glob />
+        <img src="/icon/glob.svg" alt="location" class="w-6 h-6 mr-2" />
         <p>{{ siteMetadata.location }}</p>
       </div>
       <div class="my-2 text-gray-600 flex dark:text-blue-200">
-        <Github />
+        <img src="/icon/github_new.svg" alt="github" class="w-6 h-6 mr-2" />
         <a :href="siteMetadata.github"> {{ siteMetadata.githubUser }}</a>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import Mail from "../assets/icon/mail.svg?inline";
-import Glob from "../assets/icon/glob.svg?inline";
-import Github from "../assets/icon/github_new.svg?inline";
-import siteMetaInfo from "@/data/sitemetainfo";
-export default {
-  components: { Mail, Glob, Github },
-  data: () => {
-    return {
-      siteMetadata: siteMetaInfo,
-    };
-  },
-};
+<script setup>
+const appConfig = useAppConfig()
+const siteMetadata = appConfig.siteMetadata
 </script>

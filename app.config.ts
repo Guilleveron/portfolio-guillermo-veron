@@ -1,0 +1,57 @@
+// @ts-expect-error - defineAppConfig is auto-imported by Nuxt
+export default defineAppConfig({
+  // Site metadata
+  siteMetadata: {
+    title: 'Guillermo Verón | Software Developer',
+    author: 'Guillermo Verón',
+    author_image: '/author.svg',
+    position: 'Full Stack Developer',
+    location: 'Luque, Paraguay',
+    headerTitle: 'Guillermo Verón',
+    slogan: 'Coding the future',
+    description: 'Passionate about technology & self taught learner.',
+    language: 'en-us',
+    theme: 'system', // system, dark or light
+    siteUrl: '#',
+    siteRepo: '#',
+    siteLogo: '/author.svg',
+    image: '/author.png',
+    socialBanner: '/static/images/twitter-card.png',
+    email: 'guilleveron.gvf.gv@gmail.com',
+    github: 'https://github.com/Guilleveron',
+    githubUser: 'Guilleveron',
+    twitter: 'https://twitter.com/guilleVeron98',
+    twitter_user: 'guilleVeron98',
+    stackoverflow: '#',
+    youtube: '#',
+    linkedin: 'https://www.linkedin.com/in/guillermo-v-b029bb10a/',
+    facebook: 'https://www.facebook.com/guillermo.veronfernandez.3/',
+    instagram: 'https://www.instagram.com/veronguillermo/',
+    biggie: 'https://biggie.com.py/',
+  },
+
+
+  // Skills
+  skills: [
+    { name: 'Javascript', url: 'https://www.javascript.com/', icon: '/devicon/javascript.svg' },
+    { name: 'Typescript', url: 'https://www.typescriptlang.org/', icon: '/devicon/typescript.svg' },
+    { name: 'Node.js', url: 'https://nodejs.org/en/', icon: '/devicon/node.svg' },
+    { name: 'React.js', url: 'https://react.dev/', icon: '/devicon/react.svg' },
+    { name: 'Next.js', url: 'https://nextjs.org/', icon: '/devicon/nextjs.svg' },
+    { name: 'Vue.js', url: 'https://www.vuejs.org/', icon: '/devicon/vuejs.svg' },
+    { name: 'Nuxt.js', url: 'https://www.nuxtjs.org/', icon: '/devicon/nuxt.svg' },
+    { name: 'Angular', url: 'https://angularjs.org/', icon: '/devicon/angular.svg' },
+    { name: 'PHP', url: 'https://www.php.net/', icon: '/devicon/php.svg' },
+    { name: 'Laravel', url: 'https://laravel.com/', icon: '/devicon/laravel.svg' },
+    { name: 'Laravel Jetstream', url: 'https://jetstream.laravel.com/', icon: '/devicon/jetstream.svg' },
+    { name: 'Java', url: 'https://www.java.com/en/', icon: '/devicon/java.svg' },
+    { name: 'Sass', url: 'https://sass-lang.com/', icon: '/devicon/sass.svg' },
+    { name: 'Tailwind CSS', url: 'https://tailwindcss.com/', icon: '/devicon/tailwindcss.svg' },
+    { name: 'Vuetify', url: 'https://vuetifyjs.com/en/', icon: '/devicon/vuetify.svg' },
+    { name: 'Bootstrap', url: 'https://getbootstrap.com/', icon: '/devicon/bootstrap.svg' },
+    { name: 'Docker', url: 'https://www.docker.com/', icon: '/devicon/docker.svg' },
+    { name: 'Git', url: 'https://git-scm.com/', icon: '/devicon/git.svg' },
+    { name: 'CSS', url: 'https://www.w3.org/TR/CSS/#css', icon: '/devicon/css.svg' },
+    { name: 'HTML', url: 'https://html.com/', icon: '/devicon/html.svg' },
+  ],
+})
