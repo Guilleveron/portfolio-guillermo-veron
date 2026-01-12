@@ -7,10 +7,13 @@ export default defineNuxtConfig({
   vite: {
     plugins: [svgLoader()],
   },
+  future: {
+    compatibilityVersion: 4,
+  },
 
   // Global page headers
   app: {
-    baseURL: '/portfolio-guillermo-veron/',
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
     head: {
       title: 'Portfolio Guillermo Verón',
       htmlAttrs: {
@@ -22,8 +25,12 @@ export default defineNuxtConfig({
         { name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.svg' }],
     },
+  },
+
+  nitro: {
+    preset: 'github-pages'
   },
 
   // Global CSS

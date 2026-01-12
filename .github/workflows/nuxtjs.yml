@@ -48,14 +48,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "25"
+          node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Static HTML export with Nuxt
-        run:  |
-              export NUXT_APP_BASE_URL=/portfolio-guillermo-veron/
-              ${{ steps.detect-package-manager.outputs.manager }} run generate -- --preset github_pages
+      - name: Build and Pre-render
+        run: ${{ steps.detect-package-manager.outputs.manager }} run deploy
+        env:
+          NUXT_APP_BASE_URL: /portfolio-guillermo-veron/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
