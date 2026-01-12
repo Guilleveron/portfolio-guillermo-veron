@@ -10,6 +10,7 @@ export default defineNuxtConfig({
 
   // Global page headers
   app: {
+    baseURL: '/portfolio-guillermo-veron/',
     head: {
       title: 'Portfolio Guillermo Verón',
       htmlAttrs: {
