@@ -1,0 +1,22 @@
+name = "portfolio-assistant"
+main = "src/index.ts"
+compatibility_date = "2025-10-01"
+
+# Base de conocimiento generada con `npm run knowledge` desde la raíz del repo.
+[[rules]]
+type = "Text"
+globs = ["**/*.md"]
+fallthrough = true
+
+# KV para el límite de consultas (crear con `wrangler kv namespace create RL`).
+[[kv_namespaces]]
+binding = "RL"
+id = "REEMPLAZAR_CON_EL_ID_DEL_NAMESPACE"
+
+[vars]
+ALLOWED_ORIGINS = "https://guilleveron.github.io,http://localhost:3200"
+MODEL = "claude-haiku-5-5"
+MAX_PER_HOUR = "20"
+MAX_PER_DAY_GLOBAL = "1500"
+
+# Secreto: `wrangler secret put ANTHROPIC_API_KEY`

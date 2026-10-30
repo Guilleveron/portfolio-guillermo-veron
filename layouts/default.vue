@@ -1,21 +1,24 @@
 <template>
-  <!-- Section 1 -->
-  <section class="w-full pb-8 antialiased bg-white dark:bg-gray-900 transition-colors duration-200">
-    <div class="mx-auto max-w-8xl">
-      <TheHeader />
-      <NuxtPage class="px-6" />
-      <TheFooter />
-    </div>
-  </section>
+  <div class="flex min-h-screen flex-col">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-navy-700 focus:px-4 focus:py-2 focus:text-white"
+    >
+      {{ t('nav.skip') }}
+    </a>
+    <TheHeader />
+    <main id="contenido" class="flex-1">
+      <slot />
+    </main>
+    <TheFooter />
+    <ClientOnly>
+      <LazyAssistantWidget />
+    </ClientOnly>
+  </div>
 </template>
 
-<script setup>
-// Initialize dark mode
+<script setup lang="ts">
+const { t } = useI18n()
 const { initTheme } = useDarkMode()
-
-onMounted(() => {
-  initTheme()
-})
+onMounted(initTheme)
 </script>
-
-<style></style>

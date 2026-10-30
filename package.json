@@ -1,40 +1,32 @@
 {
   "name": "portfolio-guillermo-veron",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "knowledge": "node scripts/build-knowledge.mjs",
     "deploy": "nuxt build --preset github_pages"
   },
   "engines": {
     "node": ">=20"
   },
   "dependencies": {
-    "@nuxt/content": "^3.10.0",
-    "@nuxtjs/i18n": "^10.2.1",
-    "@nuxtjs/svg-sprite": "^1.0.2",
-    "@tailwindcss/typography": "^0.5.2",
-    "better-sqlite3": "^12.5.0",
-    "clipboard": "^2.0.10",
-    "core-js": "^3.19.3",
-    "devicon": "^2.15.1",
-    "nuxt": "^4.2.2",
-    "prism-themes": "^1.9.0",
-    "prismjs": "^1.27.0",
-    "vue-i18n": "^11.2.8",
+    "@nuxt/fonts": "^1.2.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "nuxt": "^4.6.3",
+    "vue": "^3.5.26",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@nuxt/image": "^2.0.0",
     "@types/node": "^25.0.6",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.23",
-    "vite-svg-loader": "^5.1.0",
-    "vue": "^3.5.26"
+    "tailwindcss": "^3.4.17"
   }
 }

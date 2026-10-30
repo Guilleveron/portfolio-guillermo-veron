@@ -56,6 +56,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} run deploy
         env:
           NUXT_APP_BASE_URL: /portfolio-guillermo-veron/
+          NUXT_PUBLIC_ASSISTANT_URL: ${{ vars.NUXT_PUBLIC_ASSISTANT_URL }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
