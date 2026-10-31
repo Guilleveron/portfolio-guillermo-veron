@@ -12,6 +12,8 @@ export interface Job {
   url?: string
   period: string
   start: string
+  /** Inicio real en la empresa cuando el rol actual empezó después (p. ej. ascenso). */
+  tenureStart?: string
   end?: string
   current?: boolean
   note?: string
@@ -85,6 +87,9 @@ export interface SiteContent {
     linkedin: string
     github: string
     githubUser: string
+    phone: string
+    phoneHref: string
+    photo: string
     cvFile: string
     cvLabel: string
   }

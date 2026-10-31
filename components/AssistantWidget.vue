@@ -56,8 +56,9 @@
               {{ m.content }}
             </div>
             <div v-else class="max-w-[88%] rounded-2xl rounded-bl-md bg-gray-100 px-4 py-2.5 text-ink dark:bg-navy-900/70 dark:text-gray-100">
-              <div v-if="m.content" class="assistant-markdown" v-html="renderMarkdown(m.content)" />
-              <p v-else-if="m.local" class="assistant-markdown" v-html="renderMarkdown(t('assistant.noAnswer', { email: site.identity.email }))" />
+              <AssistantMessage v-if="m.content" :content="m.content" />
+              <p v-if="m.content && m.provider && !loading" class="mt-1.5 text-[0.65rem] uppercase tracking-wider text-ink-soft dark:text-gray-500">{{ t('assistant.via', { provider: providerName(m.provider) }) }}</p>
+              <AssistantMessage v-else-if="m.local" :content="t('assistant.noAnswer', { email: site.identity.email })" />
               <span v-else class="inline-flex items-center gap-1 py-1" :aria-label="t('assistant.thinking')">
                 <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft [animation-delay:0ms]" />
                 <span class="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft [animation-delay:150ms]" />
@@ -122,6 +123,8 @@ const open = ref(false)
 const draft = ref('')
 const input = ref<HTMLTextAreaElement | null>(null)
 const scroller = ref<HTMLElement | null>(null)
+
+const providerName = (p: string) => ({ gemini: 'Gemini', qwen: 'Qwen', groq: 'Groq', openrouter: 'OpenRouter', xai: 'Grok', anthropic: 'Claude' })[p] ?? p
 
 const suggestions = computed(() => {
   const list = tm('assistant.suggestions') as unknown[]

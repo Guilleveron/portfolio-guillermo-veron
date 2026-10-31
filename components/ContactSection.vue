@@ -18,6 +18,11 @@
         </div>
         <ul class="space-y-3 self-center text-sm">
           <li>
+            <a :href="site.identity.phoneHref" class="flex items-center gap-3 rounded-md border border-navy-500/60 px-4 py-3 hover:bg-navy-600">
+              <AppIcon name="phone" /> <span class="font-medium">{{ t('contact.phone') }}</span><span class="ml-auto tabular-nums text-navy-200">{{ site.identity.phone }}</span>
+            </a>
+          </li>
+          <li>
             <a :href="site.identity.linkedin" target="_blank" rel="noopener noreferrer me" class="flex items-center gap-3 rounded-md border border-navy-500/60 px-4 py-3 hover:bg-navy-600">
               <AppIcon name="linkedin" /> <span class="font-medium">LinkedIn</span><span class="ml-auto truncate text-navy-200">linkedin.com/in/guillermo-v-b029bb10a</span>
             </a>
@@ -28,9 +33,13 @@
             </a>
           </li>
           <li>
-            <a :href="withBase('/' + site.identity.cvFile)" download class="flex items-center gap-3 rounded-md border border-navy-500/60 px-4 py-3 hover:bg-navy-600">
-              <AppIcon name="download" /> <span class="font-medium">{{ t('contact.cv') }}</span>
-            </a>
+            <div class="flex items-center gap-3 rounded-md border border-navy-500/60 px-4 py-3">
+              <AppIcon name="file" /> <span class="font-medium">CV</span>
+              <span class="ml-auto flex gap-2">
+                <button type="button" class="btn border border-navy-300/60 !px-3 !py-1.5 text-xs text-white hover:bg-navy-600" @click="show"><AppIcon name="eye" size="xs" /> {{ t('contact.preview') }}</button>
+                <a :href="withBase('/' + site.identity.cvFile)" download class="btn bg-white !px-3 !py-1.5 text-xs text-navy-700 hover:bg-navy-50"><AppIcon name="download" size="xs" /> {{ t('cv.download') }}</a>
+              </span>
+            </div>
           </li>
         </ul>
       </div>
@@ -42,6 +51,7 @@
 const { t } = useI18n()
 const { site } = useSiteContent()
 const { withBase } = useBaseUrl()
+const { show } = useCvPreview()
 const copied = ref(false)
 const copy = async () => {
   try {

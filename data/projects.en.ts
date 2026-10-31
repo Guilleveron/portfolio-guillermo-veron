@@ -77,7 +77,7 @@ export const projectsEn: Project[] = [
     highlights: [
       'Invoices, credit notes, delivery notes, self-invoices and receipts, fully integrated with the SIFEN pipeline.',
       'Multi-company with roles and invitations, plans and subscriptions, a public REST API with per-company keys and OpenAPI docs.',
-      'Text and voice AI assistant that drafts documents, queries sales with charts and reports, and answers from the regulations via RAG.',
+      'Text and voice AI assistant (see its own case study) that drafts documents, queries sales with charts and reports, and answers from the regulations via RAG.',
       'Designed for high volume: asynchronous issuing with queues, a distributed rate limit and numbering protected by transactional locks.',
       'Card and QR payments, native apps published with Capacitor and deployment on Kubernetes with scheduled jobs.',
     ],
@@ -106,6 +106,54 @@ export const projectsEn: Project[] = [
       { src: '/img/projects/facsis-store-1.webp', alt: 'FACSIS presentation screen in the app store', width: 720, height: 1560 },
       { src: '/img/projects/facsis-store-2.webp', alt: 'FACSIS promotional capture with the mobile app', width: 720, height: 1560 },
       { src: '/img/projects/facsis-asistente-dark.webp', alt: 'FACSIS AI assistant showing a sales chart in dark mode (test data)', width: 720, height: 1560 },
+    ],
+  },
+  {
+    slug: 'facsis-asistente',
+    name: 'FACSIS AI assistant',
+    kind: 'work',
+    featured: true,
+    tagline: 'A text and voice assistant that drafts invoices, queries sales and answers from the regulations',
+    role: 'Design, architecture and development',
+    period: 'Aug 2026 – present',
+    summary:
+      'Conversational assistant built into FACSIS (web and mobile apps). It drafts invoices from text or a voice note, queries sales with charts and Excel reports, explains the product documentation and the DNIT regulations through RAG, and hands off to human support. It runs on a cascade of models with automatic fallback and per-plan cost control.',
+    stack: ['Next.js', 'TypeScript', 'Anthropic SDK', 'OpenAI-compatible APIs', 'PostgreSQL + pgvector', 'Redis', 'Whisper (STT)', 'Recharts'],
+    links: [{ label: 'facsis.com.py', href: 'https://facsis.com.py', kind: 'site' }],
+    highlights: [
+      'Safe assisted issuing: the model only uses read tools and creates drafts; the user confirms the issuing, which is idempotent. Prices and VAT are computed by the server.',
+      'Voice input: the note is transcribed with Whisper and the audio is discarded.',
+      'Sales queries with charts (bars, pie, series) and Excel reports generated on demand; customer account statements.',
+      'RAG over the product documentation and the SIFEN technical notes with pgvector embeddings; answers with links and images from the guide.',
+      'Provider cascade (Claude, Gemini, Qwen, OpenRouter, Groq) with per-model health, quarantine and automatic fallback; prompt caching to cut context cost.',
+      'Token quotas per plan and cycle, a global monthly spend cap, per-message traceability and an admin panel with costs, feedback, providers and model chain.',
+      'Guided tours inside the app and an animated avatar with lip-sync; a test bench that compared models before choosing the chain.',
+    ],
+    caseStudy: {
+      context:
+        'Many FACSIS users are not technical and invoice from their phones. We wanted them to issue, query and learn the system by conversing, without the AI being able to get anything fiscal wrong.',
+      role: 'I designed the architecture, wrote the service (orchestration, tools, RAG, model cascade, quotas) and the chat interface, and defined the safety rules of the assistant.',
+      challenges: [
+        'Avoiding hallucinations in a fiscal domain: the assistant cannot invent customers or prices, nor issue on its own.',
+        'Keeping the service available and cheap on free or low-cost providers that fail or throttle.',
+        'Giving useful answers about the regulations without the model making them up.',
+        'Controlling spend per customer without hurting the experience.',
+      ],
+      decisions: [
+        'Least-privilege tools: customer and product search, drafts, sales and series queries, reports, documentation, links and tours. Final issuing is an explicit user action.',
+        'A model chain configurable from the admin panel, with per-model health in Redis (progressive bans, quota quarantine, a single probe call) so a failing provider never leaves the assistant mute.',
+        'Chunked RAG with reranking and citations; images and links come from a catalogue, never from URLs written by the model.',
+        'System prompt split into a stable (cached) block and a variable block, with a final recency reminder; no user data ever enters the cached block.',
+        'Per-plan quotas, a global monthly cap and real cost logged per message; users see their daily and cycle usage.',
+      ],
+      outcome:
+        'The assistant is in production on FACSIS web, iOS and Android. This portfolio reuses the idea: the assistant in the bottom-right corner runs on a model cascade with fallback.',
+    },
+    images: [
+      { src: '/img/projects/facsis-ia-02-panel-abierto.webp', alt: 'FACSIS assistant panel just opened, with suggestions', width: 720, height: 1566 },
+      { src: '/img/projects/facsis-ia-07-nota-de-voz.webp', alt: 'Assistant reply with link cards after a voice note', width: 720, height: 1566 },
+      { src: '/img/projects/facsis-ia-11-margen-productos.webp', alt: 'Margin-per-product chart generated by the assistant (test data)', width: 720, height: 1566 },
+      { src: '/img/projects/facsis-ia-15-documentacion.webp', alt: 'Documentation explanation with a link to the timbrados section', width: 720, height: 1566 },
     ],
   },
   {
@@ -226,11 +274,11 @@ export const projectsEn: Project[] = [
     role: 'Design, development and branding',
     period: '2026',
     summary:
-      'Personal-finance app for iPhone and iPad: transactions, analysis with charts, planning and goals. Home and lock-screen widgets, a Control Center control, Siri shortcuts, automatic logging of Apple Pay payments and iCloud sync.',
+      'Personal-finance app for iPhone and iPad, published on the App Store: transactions, analysis with charts, planning and goals. Home and lock-screen widgets, a Control Center control, Siri shortcuts, automatic logging of Apple Pay payments and iCloud sync.',
     stack: ['Swift', 'SwiftUI', 'SwiftData', 'WidgetKit', 'App Intents', 'CloudKit', 'StoreKit', 'Kotlin (Android)'],
     links: [
+      { label: 'App Store', href: 'https://apps.apple.com/py/app/saldu/id6796043853', kind: 'store' },
       { label: 'Support site', href: 'https://guilleveron.github.io/saldu-app/', kind: 'site' },
-      { label: 'GitHub', href: 'https://github.com/Guilleveron/saldu-app', kind: 'github' },
     ],
     highlights: [
       'SwiftUI and SwiftData with iCloud sync and Sign in with Apple and Google.',
@@ -243,7 +291,6 @@ export const projectsEn: Project[] = [
       { src: '/img/projects/saldu-2.webp', alt: 'Saldu spending-analysis screen', width: 720, height: 1565 },
       { src: '/img/projects/saldu-3.webp', alt: 'Saldu insights screen', width: 720, height: 1565 },
     ],
-    todo: 'Confirm the App Store link once published.',
   },
   {
     slug: 'catequesis',

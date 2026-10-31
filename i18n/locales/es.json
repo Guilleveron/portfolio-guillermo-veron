@@ -71,7 +71,9 @@
     "github": "GitHub",
     "cv": "Descargar CV (PDF)",
     "copy": "Copiar correo",
-    "copied": "Copiado"
+    "copied": "Copiado",
+    "phone": "Teléfono / WhatsApp",
+    "preview": "Ver CV"
   },
   "assistant": {
     "open": "Preguntale al asistente sobre mí",
@@ -85,9 +87,9 @@
     "thinking": "Pensando…",
     "suggestions": [
       "¿Cuál es su rol actual?",
-      "¿Qué experiencia tiene liderando equipos?",
-      "¿Qué es FACSIS?",
-      "¿Qué stack tecnológico usa?",
+      "¿Qué experiencia tiene con IA?",
+      "¿Me pasás su CV?",
+      "Mostrame un gráfico de sus años por empresa",
       "¿Cómo lo contacto?"
     ],
     "disclaimer": "Asistente con IA que responde a partir del contenido de este sitio. Puede equivocarse: confirmá los datos conmigo.",
@@ -95,8 +97,9 @@
     "error": "No pude obtener una respuesta. Probá de nuevo en unos segundos.",
     "rateLimited": "Hubo demasiadas consultas en poco tiempo. Probá más tarde.",
     "noAnswer": "No tengo esa información en el sitio. Podés escribirle a Guillermo a {email}.",
-    "poweredBy": "Respuestas generadas con Claude",
-    "newChat": "Nueva conversación"
+    "poweredBy": "Respuestas generadas con modelos de lenguaje en cascada",
+    "newChat": "Nueva conversación",
+    "via": "Respuesta de {provider}"
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
@@ -107,5 +110,19 @@
     "title": "Página no encontrada",
     "text": "La página que buscás no existe o cambió de lugar.",
     "back": "Volver al inicio"
+  },
+  "cards": {
+    "cv": "Currículum (PDF)",
+    "cvDesc": "Ver en pantalla o descargar",
+    "preview": "Ver"
+  },
+  "cv": {
+    "title": "Currículum de Guillermo Verón",
+    "prev": "Página anterior",
+    "next": "Página siguiente",
+    "loading": "Cargando el PDF…",
+    "error": "No se pudo mostrar el PDF. Podés abrirlo en otra pestaña o descargarlo.",
+    "openTab": "Abrir en pestaña",
+    "download": "Descargar"
   }
 }

@@ -14,7 +14,11 @@
             <AppIcon name="download" size="sm" />
             {{ site.identity.cvLabel }}
           </a>
-          <a href="#contacto" class="btn-secondary">
+          <button type="button" class="btn-secondary" @click="show">
+            <AppIcon name="eye" size="sm" />
+            {{ t('contact.preview') }}
+          </button>
+          <a href="#contacto" class="btn-ghost">
             {{ site.hero.ctaSecondary }}
             <AppIcon name="arrow-right" size="sm" />
           </a>
@@ -34,7 +38,16 @@
       </div>
 
       <div class="flex items-center gap-5 lg:flex-col lg:items-end lg:pt-2">
-        <Monogram :label="site.identity.name" />
+        <img
+          :src="withBase(site.identity.photo)"
+          :srcset="`${withBase('/img/guillermo-veron-176.webp')} 176w, ${withBase(site.identity.photo)} 352w`"
+          sizes="(min-width: 1024px) 176px, (min-width: 640px) 144px, 112px"
+          :alt="site.identity.name"
+          width="352"
+          height="352"
+          decoding="async"
+          class="h-28 w-28 shrink-0 rounded-full object-cover shadow-sm ring-4 ring-navy-100 sm:h-36 sm:w-36 lg:h-44 lg:w-44 dark:ring-navy-900"
+        />
         <ul class="flex gap-2 lg:flex-col">
           <li>
             <a :href="site.identity.linkedin" target="_blank" rel="noopener noreferrer me" class="btn-ghost h-10 w-10 !p-0" title="LinkedIn">
@@ -61,4 +74,5 @@
 const { t } = useI18n()
 const { site } = useSiteContent()
 const { withBase } = useBaseUrl()
+const { show } = useCvPreview()
 </script>

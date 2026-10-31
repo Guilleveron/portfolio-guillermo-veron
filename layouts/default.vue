@@ -13,6 +13,7 @@
     <TheFooter />
     <ClientOnly>
       <LazyAssistantWidget />
+      <LazyCvPreviewModal />
     </ClientOnly>
   </div>
 </template>

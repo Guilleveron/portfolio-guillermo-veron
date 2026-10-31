@@ -79,7 +79,7 @@ export const projectsEs: Project[] = [
     highlights: [
       'Facturas, notas de crédito, remisiones, autofacturas y recibos, con integración completa al pipeline SIFEN.',
       'Multiempresa con roles e invitaciones, planes y suscripciones, API REST pública con claves por empresa y documentación OpenAPI.',
-      'Asistente de IA por texto y voz que redacta borradores, consulta ventas con gráficos y reportes, y documenta con RAG sobre la normativa.',
+      'Asistente de IA por texto y voz (ver caso aparte) que redacta borradores, consulta ventas con gráficos y reportes, y responde desde la normativa con RAG.',
       'Diseño para alto volumen: emisión asíncrona con colas, límite de tasa distribuido y numeración protegida con bloqueos transaccionales.',
       'Pagos con tarjeta y QR, apps nativas publicadas con Capacitor y despliegue en Kubernetes con tareas programadas.',
     ],
@@ -108,6 +108,54 @@ export const projectsEs: Project[] = [
       { src: '/img/projects/facsis-store-1.webp', alt: 'Pantalla de presentación de FACSIS en la tienda de aplicaciones', width: 720, height: 1560 },
       { src: '/img/projects/facsis-store-2.webp', alt: 'Captura promocional de FACSIS con la app móvil', width: 720, height: 1560 },
       { src: '/img/projects/facsis-asistente-dark.webp', alt: 'Asistente de IA de FACSIS mostrando un gráfico de ventas en modo oscuro (datos de prueba)', width: 720, height: 1560 },
+    ],
+  },
+  {
+    slug: 'facsis-asistente',
+    name: 'Asistente de IA de FACSIS',
+    kind: 'work',
+    featured: true,
+    tagline: 'Un asistente por texto y voz que redacta facturas, consulta ventas y responde desde la normativa',
+    role: 'Diseño, arquitectura y desarrollo',
+    period: 'Ago. 2026 – actualidad',
+    summary:
+      'Asistente conversacional integrado en FACSIS (web y apps móviles). Redacta borradores de facturas desde texto o una nota de voz, consulta ventas con gráficos y reportes en Excel, explica la documentación y la normativa de la DNIT con RAG, y deriva a soporte humano. Funciona sobre una cascada de modelos con fallback automático y control de costos por plan.',
+    stack: ['Next.js', 'TypeScript', 'Anthropic SDK', 'OpenAI-compatible APIs', 'PostgreSQL + pgvector', 'Redis', 'Whisper (STT)', 'Recharts'],
+    links: [{ label: 'facsis.com.py', href: 'https://facsis.com.py', kind: 'site' }],
+    highlights: [
+      'Emisión asistida con seguridad: el modelo solo usa herramientas de lectura y crea borradores; el usuario confirma la emisión, que es idempotente. Precios e IVA los calcula el servidor.',
+      'Entrada por voz: la nota se transcribe con Whisper y el audio se descarta.',
+      'Consultas de ventas con gráficos (barras, torta, series) y reportes en Excel generados a pedido; estado de cuenta de clientes.',
+      'RAG sobre la documentación del producto y las notas técnicas de SIFEN con embeddings en pgvector; respuestas con enlaces e imágenes de la guía.',
+      'Cascada de proveedores (Claude, Gemini, Qwen, OpenRouter, Groq) con salud por modelo, cuarentena y fallback automático; prompt caching para abaratar el contexto.',
+      'Cuotas de tokens por plan y ciclo, tope de gasto mensual global, trazabilidad por mensaje y panel de administración con costos, feedback, proveedores y cadena de modelos.',
+      'Tours guiados dentro de la app y avatar animado con sincronización labial; batería de pruebas que comparó modelos antes de elegir la cadena.',
+    ],
+    caseStudy: {
+      context:
+        'Muchos usuarios de FACSIS no son técnicos y facturan desde el teléfono. Queríamos que pudieran emitir, consultar y aprender a usar el sistema conversando, sin que la IA pudiera equivocarse en algo fiscal.',
+      role: 'Diseñé la arquitectura, escribí el servicio (orquestación, herramientas, RAG, cascada de modelos, cuotas) y la interfaz del chat, y definí las reglas de seguridad del asistente.',
+      challenges: [
+        'Evitar alucinaciones en un dominio fiscal: el asistente no puede inventar clientes, precios ni emitir por su cuenta.',
+        'Mantener el servicio disponible y barato con proveedores gratuitos o de bajo costo que fallan o limitan el uso.',
+        'Dar respuestas útiles sobre la normativa sin que el modelo se la invente.',
+        'Controlar el gasto por cliente sin arruinar la experiencia.',
+      ],
+      decisions: [
+        'Herramientas con permisos mínimos: búsqueda de clientes y productos, borradores, consultas de ventas y series, reportes, documentación, enlaces y tours. La emisión final es una acción explícita del usuario.',
+        'Cadena de modelos configurable desde el panel, con estado de salud por modelo en Redis (ban progresivo, cuarentena por cuota, llamada única de prueba) para que un proveedor caído no deje mudo al asistente.',
+        'RAG por fragmentos con reranking y citas; las imágenes y enlaces salen de un catálogo, nunca de URLs escritas por el modelo.',
+        'System prompt partido en bloque estable (cacheado) y bloque variable, con recordatorio final por recencia; nunca entra un dato del usuario al bloque cacheado.',
+        'Cuotas por plan, tope mensual global y registro de costo real por mensaje; el usuario ve su consumo del día y del ciclo.',
+      ],
+      outcome:
+        'El asistente está en producción en FACSIS web, iOS y Android. Este mismo portafolio reutiliza la idea: el asistente que ves abajo a la derecha corre sobre una cascada de modelos con fallback.',
+    },
+    images: [
+      { src: '/img/projects/facsis-ia-02-panel-abierto.webp', alt: 'Panel del asistente de FACSIS recién abierto con sugerencias', width: 720, height: 1566 },
+      { src: '/img/projects/facsis-ia-07-nota-de-voz.webp', alt: 'Respuesta del asistente con tarjetas de enlace tras una nota de voz', width: 720, height: 1566 },
+      { src: '/img/projects/facsis-ia-11-margen-productos.webp', alt: 'Gráfico de margen por producto generado por el asistente (datos de prueba)', width: 720, height: 1566 },
+      { src: '/img/projects/facsis-ia-15-documentacion.webp', alt: 'Explicación de la documentación con enlace a la sección de timbrados', width: 720, height: 1566 },
     ],
   },
   {
@@ -231,11 +279,11 @@ export const projectsEs: Project[] = [
     role: 'Diseño, desarrollo y marca',
     period: '2026',
     summary:
-      'Aplicación de finanzas personales para iPhone y iPad: movimientos, análisis con gráficos, planificación y metas. Widgets de pantalla de inicio y bloqueo, control en el Centro de control, atajos de Siri, registro automático de pagos con Apple Pay y sincronización con iCloud.',
+      'Aplicación de finanzas personales para iPhone y iPad, publicada en el App Store: movimientos, análisis con gráficos, planificación y metas. Widgets de pantalla de inicio y bloqueo, control en el Centro de control, atajos de Siri, registro automático de pagos con Apple Pay y sincronización con iCloud.',
     stack: ['Swift', 'SwiftUI', 'SwiftData', 'WidgetKit', 'App Intents', 'CloudKit', 'StoreKit', 'Kotlin (Android)'],
     links: [
+      { label: 'App Store', href: 'https://apps.apple.com/py/app/saldu/id6796043853', kind: 'store' },
       { label: 'Sitio de soporte', href: 'https://guilleveron.github.io/saldu-app/', kind: 'site' },
-      { label: 'GitHub', href: 'https://github.com/Guilleveron/saldu-app', kind: 'github' },
     ],
     highlights: [
       'SwiftUI y SwiftData con sincronización iCloud e inicio de sesión con Apple y Google.',
@@ -248,7 +296,6 @@ export const projectsEs: Project[] = [
       { src: '/img/projects/saldu-2.webp', alt: 'Pantalla de análisis de gastos de Saldu', width: 720, height: 1565 },
       { src: '/img/projects/saldu-3.webp', alt: 'Pantalla de insights de Saldu', width: 720, height: 1565 },
     ],
-    todo: 'Confirmar enlace del App Store cuando esté publicada.',
   },
   {
     slug: 'catequesis',

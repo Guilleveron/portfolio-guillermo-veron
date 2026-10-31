@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center justify-center rounded-full bg-navy-700 font-serif font-semibold tracking-tight text-white shadow-sm ring-4 ring-navy-100 dark:bg-navy-600 dark:ring-navy-900"
+    class="flex shrink-0 items-center justify-center rounded-full bg-navy-700 font-serif font-semibold tracking-tight text-white shadow-sm ring-4 ring-navy-100 dark:bg-navy-600 dark:ring-navy-900"
     :class="sizeClass"
     :role="decorative ? undefined : 'img'"
     :aria-label="decorative ? undefined : label"

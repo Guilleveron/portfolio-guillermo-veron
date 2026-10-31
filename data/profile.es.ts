@@ -19,6 +19,9 @@ export const es: SiteContent = {
     linkedin: 'https://www.linkedin.com/in/guillermo-v-b029bb10a',
     github: 'https://github.com/Guilleveron',
     githubUser: 'Guilleveron',
+    phone: '+595 962 292 551',
+    phoneHref: 'tel:+595962292551',
+    photo: '/img/guillermo-veron-352.webp',
     cvFile: 'CV_Gerente_IT_Guillermo_Verón.pdf',
     cvLabel: 'Descargar CV (PDF)',
   },
@@ -54,7 +57,7 @@ export const es: SiteContent = {
     },
     {
       title: 'Datos, BI e IA',
-      text: 'Reportería y dashboards de gestión y auditoría con Metabase; diseño de indicadores. Integración de modelos de lenguaje (LLM) en productos y adopción de asistentes de IA (Claude Code, GitHub Copilot) en el ciclo de desarrollo.',
+      text: 'Reportería y dashboards de gestión y auditoría con Metabase; diseño de indicadores. Integración de modelos de lenguaje (LLM) en productos, como el asistente de IA de FACSIS (texto y voz, RAG, cascada de modelos), y adopción de asistentes de IA (Claude Code, GitHub Copilot) en el ciclo de desarrollo.',
     },
     {
       title: 'Infraestructura y seguridad',
@@ -81,6 +84,7 @@ export const es: SiteContent = {
         url: 'https://encom.lat',
         period: 'Feb. 2025 – actualidad',
         start: '2025-02',
+    tenureStart: '2023-07',
         current: true,
         note: 'Desarrollador Senior en la misma compañía desde Jul. 2023 · encom.lat · facsis.com.py',
         bullets: [
@@ -220,6 +224,10 @@ export const es: SiteContent = {
       a: 'Una aplicación de facturación electrónica SIFEN orientada a uso masivo en Paraguay, con web app y app móvil (iOS y Android). Está construida con Next.js, TypeScript y PostgreSQL, y compilada con Capacitor. Guillermo la desarrolla y mantiene, y participa en su comercialización.',
     },
     {
+      q: '¿Qué experiencia tiene con inteligencia artificial?',
+      a: 'Diseñó y desarrolló el asistente de IA de FACSIS: un chat por texto y voz que redacta borradores de facturas, consulta ventas con gráficos y reportes en Excel, responde desde la documentación y la normativa con RAG (pgvector) y deriva a soporte. Corre sobre una cascada de modelos (Claude, Gemini, Qwen, OpenRouter, Groq) con fallback automático, cuotas por plan y control de costos. Además impulsa el uso de Claude Code y GitHub Copilot en el equipo, y el asistente de este portafolio usa la misma idea de cascada.',
+    },
+    {
       q: '¿Cuánta experiencia tiene?',
       a: 'Diez años de trayectoria profesional: cuatro en administración, contabilidad y ventas (2016–2020) y más de seis en desarrollo de software (desde 2020).',
     },
@@ -241,7 +249,7 @@ export const es: SiteContent = {
     },
     {
       q: '¿Cómo contactarlo?',
-      a: 'Por correo a guilleveron.gvf.gv@gmail.com o por LinkedIn: linkedin.com/in/guillermo-v-b029bb10a. Su GitHub es github.com/Guilleveron.',
+      a: 'Por correo a guilleveron.gvf.gv@gmail.com, por teléfono o WhatsApp al +595 962 292 551, o por LinkedIn: linkedin.com/in/guillermo-v-b029bb10a. Su GitHub es github.com/Guilleveron. Su CV en PDF se puede descargar desde el sitio.',
     },
     {
       q: '¿Qué tipo de roles busca?',

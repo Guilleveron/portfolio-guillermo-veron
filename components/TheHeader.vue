@@ -1,13 +1,13 @@
 <template>
   <header class="sticky top-0 z-40 border-b border-gray-200/70 bg-paper/85 backdrop-blur supports-[backdrop-filter]:bg-paper/70 dark:border-navy-800/80 dark:bg-paper-dark/80">
     <div class="container-site flex h-16 items-center justify-between gap-4">
-      <NuxtLink to="/" class="flex items-center gap-3 rounded-md">
+      <NuxtLink to="/" class="flex shrink-0 items-center gap-3 rounded-md">
         <Monogram size="sm" decorative />
-        <span class="sr-only sm:not-sr-only font-serif text-lg font-semibold tracking-tight text-ink dark:text-gray-50">{{ site.identity.shortName }}</span>
+        <span class="sr-only whitespace-nowrap font-serif text-lg font-semibold tracking-tight text-ink sm:not-sr-only dark:text-gray-50">{{ site.identity.shortName }}</span>
       </NuxtLink>
 
       <nav class="hidden lg:block" :aria-label="t('nav.menu')">
-        <ul class="flex items-center gap-1">
+        <ul class="flex items-center gap-0.5">
           <li v-for="item in navItems" :key="item.hash">
             <a
               :href="item.href"
@@ -22,8 +22,8 @@
         </ul>
       </nav>
 
-      <div class="flex items-center gap-2">
-        <a :href="withBase('/' + site.identity.cvFile)" class="btn-primary hidden h-10 md:inline-flex" download>
+      <div class="flex shrink-0 items-center gap-2">
+        <a :href="withBase('/' + site.identity.cvFile)" class="btn-primary hidden h-10 whitespace-nowrap md:inline-flex lg:hidden xl:inline-flex" download>
           <AppIcon name="download" size="sm" />
           <span>{{ site.hero.ctaPrimary }}</span>
         </a>
