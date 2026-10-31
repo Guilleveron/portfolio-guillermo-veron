@@ -36,11 +36,16 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-// Permite enlazar directamente a un idioma: /?lang=en
+// Idioma: /?lang=en tiene prioridad; si no, la última elección guardada del visitante.
 const route = useRoute()
 const { setLocale } = useI18n()
 onMounted(() => {
-  const lang = route.query.lang
+  let lang = route.query.lang
+  if (lang !== 'en' && lang !== 'es') {
+    try {
+      lang = localStorage.getItem('portfolio_locale') ?? undefined
+    } catch {}
+  }
   if ((lang === 'en' || lang === 'es') && lang !== locale.value) setLocale(lang)
 })
 </script>

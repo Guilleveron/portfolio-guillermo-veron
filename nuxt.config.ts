@@ -64,12 +64,9 @@ export default defineNuxtConfig({
     lazy: true,
     defaultLocale: 'es',
     strategy: 'no_prefix',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'portfolio_locale',
-      redirectOn: 'root',
-      fallbackLocale: 'es',
-    },
+    // Español fijo por defecto (sin detección del navegador, que re-renderiza la página al hidratar).
+    // La elección del visitante se guarda en localStorage (ver LanguageSwitcher y app.vue).
+    detectBrowserLanguage: false,
     baseUrl: SITE_URL,
   },
 

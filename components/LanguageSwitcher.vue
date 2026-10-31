@@ -20,5 +20,8 @@ const { t, locale, setLocale } = useI18n()
 const codes = ['es', 'en'] as const
 const switchTo = (code: 'es' | 'en') => {
   if (code !== locale.value) setLocale(code)
+  try {
+    localStorage.setItem('portfolio_locale', code)
+  } catch {}
 }
 </script>
