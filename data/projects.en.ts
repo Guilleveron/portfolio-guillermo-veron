@@ -15,6 +15,7 @@ export const projectsEn: Project[] = [
     links: [
       { label: 'encom.lat', href: 'https://encom.lat', kind: 'site' },
       { label: 'encom.com.py', href: 'https://encom.com.py', kind: 'site' },
+      { label: 'Documentation', href: 'https://docs.encom.com.py/', kind: 'docs' },
     ],
     highlights: [
       'Multi-tenant, multi-currency architecture with a MySQL database replicated across clouds (DigitalOcean and OVH).',
