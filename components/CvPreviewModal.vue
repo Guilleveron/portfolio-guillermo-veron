@@ -65,7 +65,8 @@ async function load() {
   status.value = 'loading'
   try {
     const pdfjs: any = await import('pdfjs-dist')
-    pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString()
+    // El worker se sirve desde public/ (copiado con `npm run pdfjs:worker`) para que no entre en la precarga inicial.
+    pdfjs.GlobalWorkerOptions.workerSrc = withBase('/pdf.worker.min.mjs')
     pdf = await pdfjs.getDocument({ url: url.value }).promise
     pages.value = pdf.numPages
     page.value = 1
@@ -117,8 +118,15 @@ watch(open, async (v) => {
 })
 
 let ro: ResizeObserver | null = null
-onMounted(() => {
+onMounted(async () => {
   ro = new ResizeObserver(() => status.value === 'ready' && render())
+  if (open.value) {
+    document.body.style.overflow = 'hidden'
+    await nextTick()
+    dialog.value?.focus()
+    if (scroller.value) ro.observe(scroller.value)
+    load()
+  }
 })
 onBeforeUnmount(() => ro?.disconnect())
 </script>

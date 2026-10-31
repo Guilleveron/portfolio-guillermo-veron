@@ -10,6 +10,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "knowledge": "node scripts/build-knowledge.mjs",
+    "pdfjs:worker": "cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/pdf.worker.min.mjs",
     "deploy": "nuxt build --preset github_pages"
   },
   "engines": {

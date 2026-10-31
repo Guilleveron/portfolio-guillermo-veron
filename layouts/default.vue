@@ -13,7 +13,8 @@
     <TheFooter />
     <ClientOnly>
       <LazyAssistantWidget />
-      <LazyCvPreviewModal />
+      <!-- Se monta recién al abrirlo: así pdf.js no entra en la carga inicial. -->
+      <LazyCvPreviewModal v-if="cvEverOpened" />
     </ClientOnly>
   </div>
 </template>
@@ -22,4 +23,7 @@
 const { t } = useI18n()
 const { initTheme } = useDarkMode()
 onMounted(initTheme)
+const { open: cvOpen } = useCvPreview()
+const cvEverOpened = ref(false)
+watch(cvOpen, (v) => v && (cvEverOpened.value = true), { immediate: true })
 </script>
