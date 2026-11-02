@@ -229,8 +229,9 @@ export const projectsEn: Project[] = [
       outcome: "A new foundation for the platform's online stores, deployed independently from the panel and customisable per merchant.",
     },
     images: [
+      { src: '/img/projects/ecommerce-tienda.webp', alt: 'Home page of a test food store: carousel, delivery or pickup, and a menu with photos', width: 1400, height: 875 },
+      { src: '/img/projects/ecommerce-producto.webp', alt: 'Product page with gallery, discount, add-on suggestion and shipping options (test data)', width: 1400, height: 875 },
       { src: '/img/projects/ecommerce-editor.webp', alt: 'E-commerce theme editor with live preview (demo store)', width: 1400, height: 875 },
-      { src: '/img/projects/ecommerce-resumen.webp', alt: 'Overview dashboard of a demo store', width: 1400, height: 875 },
     ],
   },
   {

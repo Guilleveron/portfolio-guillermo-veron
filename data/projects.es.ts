@@ -233,8 +233,9 @@ export const projectsEs: Project[] = [
       outcome: 'Nueva base para las tiendas online de la plataforma, con despliegue independiente del panel y capacidad de personalización por comercio.',
     },
     images: [
+      { src: '/img/projects/ecommerce-tienda.webp', alt: 'Portada de una tienda gastronómica de prueba: carrusel, delivery o retiro y carta con fotos', width: 1400, height: 875 },
+      { src: '/img/projects/ecommerce-producto.webp', alt: 'Ficha de producto con galería, descuento, sugerencia de agregado y opciones de envío (datos de prueba)', width: 1400, height: 875 },
       { src: '/img/projects/ecommerce-editor.webp', alt: 'Editor de temas del e-commerce con vista previa en vivo (tienda de demostración)', width: 1400, height: 875 },
-      { src: '/img/projects/ecommerce-resumen.webp', alt: 'Panel de resumen de una tienda de demostración', width: 1400, height: 875 },
     ],
   },
   {
