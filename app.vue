@@ -16,9 +16,11 @@ useHead(() => ({
   htmlAttrs: { lang: locale.value === 'en' ? 'en' : 'es' },
   script: [{ innerHTML: themeScript, tagPosition: 'head' }],
   link: [
-    { rel: 'icon', type: 'image/svg+xml', href: withBase('/favicon.svg') },
-    { rel: 'alternate icon', href: withBase('/favicon.ico') },
-    { rel: 'apple-touch-icon', href: withBase('/apple-touch-icon.png') },
+    // ?v=2: fuerza a los navegadores a descartar el ícono anterior cacheado.
+    { rel: 'icon', type: 'image/svg+xml', href: withBase('/favicon.svg?v=2') },
+    { rel: 'icon', type: 'image/x-icon', sizes: '16x16 32x32 48x48', href: withBase('/favicon.ico?v=2') },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: withBase('/apple-touch-icon.png?v=2') },
+    { rel: 'manifest', href: withBase('/site.webmanifest') },
     { rel: 'canonical', href: `${siteUrl}/` },
     { rel: 'alternate', hreflang: 'es', href: `${siteUrl}/` },
     { rel: 'alternate', hreflang: 'en', href: `${siteUrl}/?lang=en` },
@@ -30,10 +32,13 @@ useSeoMeta({
   ogType: 'profile',
   ogSiteName: () => site.value.identity.shortName,
   ogLocale: () => (locale.value === 'en' ? 'en_US' : 'es_PY'),
-  ogImage: `${siteUrl}/og-image.png`,
+  ogImage: `${siteUrl}/og-image.jpg`,
   ogImageWidth: 1200,
   ogImageHeight: 630,
+  ogImageType: 'image/jpeg',
+  ogImageAlt: () => `${site.value.identity.shortName} · ${site.value.identity.headline}`,
   twitterCard: 'summary_large_image',
+  twitterImage: `${siteUrl}/og-image.jpg`,
 })
 
 // Idioma: /?lang=en tiene prioridad; si no, la última elección guardada del visitante.

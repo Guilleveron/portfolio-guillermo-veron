@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#1F3A5F"/>
-  <text x="32" y="41" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="600" fill="#FFFFFF" text-anchor="middle">GV</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A4A78"/><stop offset="1" stop-color="#172B47"/></linearGradient></defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <rect x="1" y="1" width="510" height="510" rx="111" fill="none" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <g fill="#FFFFFF" transform="translate(21.42 368.64) scale(0.33624 -0.33624)">
+    <path d="M402 -16Q324 -16 258.5 7Q193 30 144.5 74.5Q96 119 70 183Q44 247 44 330Q44 412 71 477Q98 542 147.5 587.5Q197 633 264 657Q331 681 410 681Q455 681 493.5 675Q532 669 564.5 658.5Q597 648 622 635L626 483L556 483L521 631L591 623L591 563Q556 591 514 605.5Q472 620 423 620Q358 620 305 587.5Q252 555 220.5 491.5Q189 428 189 334Q189 239 219 174.5Q249 110 302 77.5Q355 45 424 45Q468 45 500 55.5Q532 66 565 84L507 25L507 87Q507 146 507 204Q507 262 506 322L641 322Q640 264 639.5 205Q639 146 639 87L639 40Q591 15 532.5 -0.5Q474 -16 402 -16ZM406 265L406 322L702 322L702 265L592 259L541 259Z"/>
+    <path transform="translate(653.3 0)" d="M310 -3L64 664L210 664L397 103L394 103L433 251L572 664L641 664L408 -3ZM13 606L13 664L326 664L326 606L194 598L138 598ZM461 606L461 664L698 664L698 606L596 598L569 598Z"/>
+  </g>
 </svg>
