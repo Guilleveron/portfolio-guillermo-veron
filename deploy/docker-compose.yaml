@@ -28,14 +28,20 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=coolify"
-      # --- HTTPS: guilleveron.com y www ---
-      - "traefik.http.routers.portfolio.rule=Host(`guilleveron.com`) || Host(`www.guilleveron.com`)"
+      # --- HTTPS apex. Router propio: así su certificado no depende de que `www` resuelva. ---
+      - "traefik.http.routers.portfolio.rule=Host(`guilleveron.com`)"
       - "traefik.http.routers.portfolio.entrypoints=https"
       - "traefik.http.routers.portfolio.tls=true"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.routers.portfolio.service=portfolio"
-      - "traefik.http.routers.portfolio.middlewares=portfolio-www-redirect"
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"
+      # --- HTTPS www -> apex (certificado aparte) ---
+      - "traefik.http.routers.portfolio-www.rule=Host(`www.guilleveron.com`)"
+      - "traefik.http.routers.portfolio-www.entrypoints=https"
+      - "traefik.http.routers.portfolio-www.tls=true"
+      - "traefik.http.routers.portfolio-www.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portfolio-www.service=portfolio"
+      - "traefik.http.routers.portfolio-www.middlewares=portfolio-www-redirect"
       # --- HTTP -> HTTPS ---
       - "traefik.http.routers.portfolio-http.rule=Host(`guilleveron.com`) || Host(`www.guilleveron.com`)"
       - "traefik.http.routers.portfolio-http.entrypoints=http"
