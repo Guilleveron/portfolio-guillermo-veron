@@ -3,7 +3,9 @@
 Sitio personal bilingüe (español por defecto, inglés), publicado en dos lugares con el mismo código:
 
 - **https://guilleveron.com** (dominio propio, servidor OVH con Docker: ver "Despliegue en OVH").
-- **https://guilleveron.github.io/portfolio-guillermo-veron/** (GitHub Pages, por Actions al pushear `master`).
+- **https://guilleveron.github.io/portfolio-guillermo-veron/** ya no aloja el sitio: GitHub Pages
+  publica solo una redirección (`pages-redirect/`) que manda cada ruta vieja a la misma ruta en
+  guilleveron.com. Se despliega por Actions al pushear `master`.
 
 La canónica y las etiquetas Open Graph apuntan siempre al dominio propio.
 
@@ -28,6 +30,14 @@ Cloudflare Worker como proxy (ver `worker/README.md`).
 
 ## Desarrollo
 
+Asistente de IA en local (dos archivos ignorados por git, hay ejemplos al lado):
+
+1. `worker/.dev.vars` (copiar de `worker/.dev.vars.example`): claves de los proveedores de LLM.
+   La cadena de modelos está en `worker/wrangler.toml` (`LLM_CHAIN`); los eslabones sin clave se saltan.
+2. `.env` en la raíz (copiar de `.env.example`): `NUXT_PUBLIC_ASSISTANT_URL=http://localhost:8787`.
+3. `cd worker && npm run dev` levanta el proxy en 8787; `npm run dev` en la raíz, el sitio en 3200.
+
+
 ```bash
 npm install
 npm run dev          # http://localhost:3200
@@ -35,20 +45,22 @@ npm run dev          # http://localhost:3200
 
 ## Build y despliegue
 
-El workflow `.github/workflows/nuxtjs.yml` construye y publica en GitHub Pages en cada push a
-`master`:
-
 ```bash
-NUXT_APP_BASE_URL=/portfolio-guillermo-veron/ npm run deploy   # salida en .output/public
+npm run generate        # sitio estático en .output/public (base "/", canónica guilleveron.com)
+scripts/deploy-ovh.sh   # genera y publica en el servidor OVH (ver sección siguiente)
 ```
 
-Variables opcionales (GitHub → Settings → Secrets and variables → Actions → Variables):
+Variables de entorno del build:
 
-- `NUXT_PUBLIC_ASSISTANT_URL`: URL del Worker del asistente. Sin ella, el widget responde en
-  modo básico desde las preguntas frecuentes.
-- `NUXT_PUBLIC_SITE_URL` (por defecto `https://guilleveron.com`) y `NUXT_APP_BASE_URL`: el
-  workflow de GitHub Pages usa la base `/portfolio-guillermo-veron/`; `scripts/deploy-ovh.sh`
-  genera con base `/` para el dominio propio.
+- `NUXT_PUBLIC_ASSISTANT_URL`: URL del proxy del asistente (`https://api.guilleveron.com` en
+  producción; `scripts/deploy-ovh.sh` la usa por defecto). Sin ella, el widget responde en modo
+  básico desde las preguntas frecuentes.
+- `NUXT_PUBLIC_SITE_URL` (por defecto `https://guilleveron.com`) y `NUXT_APP_BASE_URL` (por
+  defecto `/`).
+
+GitHub Pages: el workflow `.github/workflows/nuxtjs.yml` ya no construye el sitio; sube la
+carpeta `pages-redirect/` (una página que redirige a guilleveron.com conservando la ruta) en
+cada push a `master` que la toque.
 
 ## Despliegue en OVH (guilleveron.com)
 
