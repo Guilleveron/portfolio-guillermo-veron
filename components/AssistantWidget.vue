@@ -9,7 +9,7 @@
       aria-controls="assistant-panel"
       @click="toggle"
     >
-      <AppIcon :name="open ? 'x' : 'sparkle'" />
+      <AppIcon :name="open ? 'x' : 'bot'" />
       <span class="hidden sm:inline">{{ open ? t('assistant.close') : t('assistant.title') }}</span>
     </button>
 
@@ -30,7 +30,9 @@
         @keydown.esc="open = false"
       >
         <header class="flex items-center gap-3 border-b border-gray-200/80 px-4 py-3 dark:border-navy-800">
-          <Monogram size="sm" decorative />
+          <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-700 text-white ring-4 ring-navy-100 dark:bg-accent dark:ring-navy-900" aria-hidden="true">
+            <AppIcon name="bot" size="sm" />
+          </span>
           <div class="min-w-0 flex-1">
             <h2 class="text-sm font-semibold text-ink dark:text-gray-50">{{ t('assistant.title') }}</h2>
             <p class="truncate text-xs text-ink-soft dark:text-gray-400">{{ t('assistant.subtitle') }}</p>

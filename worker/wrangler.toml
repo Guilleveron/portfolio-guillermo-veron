@@ -14,7 +14,7 @@ fallthrough = true
 # id = "REEMPLAZAR_CON_EL_ID_DEL_NAMESPACE"
 
 [vars]
-ALLOWED_ORIGINS = "https://guilleveron.github.io,http://localhost:3200"
+ALLOWED_ORIGINS = "https://guilleveron.com,https://www.guilleveron.com,https://guilleveron.github.io,http://localhost:3200"
 # Cascada de modelos: proveedor:modelo separados por coma. Se saltan los que no tienen clave.
 LLM_CHAIN = "qwen:qwen-flash,openrouter:google/gemini-2.5-flash-lite,openrouter:inclusionai/ling-3.0-flash,groq:openai/gpt-oss-20b,gemini:gemini-3.7-flash,qwen:qwen3.7-flash,xai:grok-4-fast,anthropic:claude-haiku-5-5"
 MAX_PER_HOUR = "20"

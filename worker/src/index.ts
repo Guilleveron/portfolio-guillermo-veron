@@ -68,7 +68,7 @@ const PROVEEDORES: Record<string, Proveedor> = {
     protocolo: 'openai',
     baseUrl: () => 'https://openrouter.ai/api/v1',
     apiKey: (e) => e.OPENROUTER_API_KEY,
-    headers: { 'HTTP-Referer': 'https://guilleveron.github.io/portfolio-guillermo-veron/', 'X-Title': 'Portafolio Guillermo Veron' },
+    headers: { 'HTTP-Referer': 'https://guilleveron.com/', 'X-Title': 'Portafolio Guillermo Veron' },
   },
   xai: { protocolo: 'openai', baseUrl: () => 'https://api.x.ai/v1', apiKey: (e) => e.XAI_API_KEY },
   anthropic: { protocolo: 'anthropic', baseUrl: () => 'https://api.anthropic.com', apiKey: (e) => e.ANTHROPIC_API_KEY },

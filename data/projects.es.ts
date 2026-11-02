@@ -235,7 +235,9 @@ export const projectsEs: Project[] = [
     images: [
       { src: '/img/projects/ecommerce-tienda.webp', alt: 'Portada de una tienda gastronómica de prueba: carrusel, delivery o retiro y carta con fotos', width: 1400, height: 875 },
       { src: '/img/projects/ecommerce-producto.webp', alt: 'Ficha de producto con galería, descuento, sugerencia de agregado y opciones de envío (datos de prueba)', width: 1400, height: 875 },
-      { src: '/img/projects/ecommerce-editor.webp', alt: 'Editor de temas del e-commerce con vista previa en vivo (tienda de demostración)', width: 1400, height: 875 },
+      { src: '/img/projects/ecommerce-editor.webp', alt: 'Editor de temas con vista previa en vivo: secciones de la portada, plantilla y publicación (tienda de prueba)', width: 1400, height: 843 },
+      { src: '/img/projects/ecommerce-admin.webp', alt: 'Panel del comercio: ventas de la semana, pedidos por atender, puesta en marcha y más vendidos (datos de prueba)', width: 1400, height: 843 },
+      { src: '/img/projects/ecommerce-pedidos.webp', alt: 'Listado de pedidos con estados, entrega, pago y tótem (datos de prueba)', width: 1400, height: 843 },
     ],
   },
   {

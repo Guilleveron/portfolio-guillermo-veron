@@ -1,7 +1,11 @@
 # Portafolio — Guillermo Verón
 
-Sitio personal bilingüe (español por defecto, inglés) publicado en GitHub Pages:
-https://guilleveron.github.io/portfolio-guillermo-veron/
+Sitio personal bilingüe (español por defecto, inglés), publicado en dos lugares con el mismo código:
+
+- **https://guilleveron.com** (dominio propio, servidor OVH con Docker: ver "Despliegue en OVH").
+- **https://guilleveron.github.io/portfolio-guillermo-veron/** (GitHub Pages, por Actions al pushear `master`).
+
+La canónica y las etiquetas Open Graph apuntan siempre al dominio propio.
 
 Stack: Nuxt 4 (generación estática), Tailwind CSS, `@nuxtjs/i18n`, `@nuxt/fonts`
 (Inter y Source Serif 4 autoalojadas). Sin backend: el asistente de IA usa un
@@ -42,24 +46,40 @@ Variables opcionales (GitHub → Settings → Secrets and variables → Actions 
 
 - `NUXT_PUBLIC_ASSISTANT_URL`: URL del Worker del asistente. Sin ella, el widget responde en
   modo básico desde las preguntas frecuentes.
-- `NUXT_PUBLIC_SITE_URL` y `NUXT_APP_BASE_URL`: al pasar a un dominio propio (por ejemplo
-  `https://guillermoveron.com`), definir la primera con el dominio y la segunda con `/` en el
-  workflow, y configurar el dominio en Settings → Pages (ver sección siguiente).
+- `NUXT_PUBLIC_SITE_URL` (por defecto `https://guilleveron.com`) y `NUXT_APP_BASE_URL`: el
+  workflow de GitHub Pages usa la base `/portfolio-guillermo-veron/`; `scripts/deploy-ovh.sh`
+  genera con base `/` para el dominio propio.
 
-## Dominio propio
+## Despliegue en OVH (guilleveron.com)
 
-1. Settings → Pages → Custom domain: escribir el dominio y guardar (antes de tocar el DNS).
-2. DNS: cuatro registros A del apex a `185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
-   `185.199.111.153`, y `www` como CNAME a `guilleveron.github.io`. Si el DNS está en Cloudflare,
-   dejar los registros sin proxy (nube gris).
-3. Esperar la propagación y activar "Enforce HTTPS".
-4. En `.github/workflows/nuxtjs.yml` cambiar `NUXT_APP_BASE_URL` a `/` y agregar
-   `NUXT_PUBLIC_SITE_URL`. Con despliegue por Actions no hace falta el archivo `CNAME`.
-5. Agregar el dominio nuevo a `ALLOWED_ORIGINS` en `worker/wrangler.toml` y redesplegar el Worker.
+El sitio se genera en la máquina local y se sube ya construido; en el servidor solo corre un
+`nginx:alpine` detrás del Traefik de Coolify (red `coolify`), que emite el certificado de
+Let's Encrypt. No toca los demás proyectos del servidor (cada uno es su propio `docker compose`).
+
+```bash
+cp .env.deploy.example .env.deploy   # una vez: URL del asistente, alias SSH
+scripts/deploy-ovh.sh                # genera con base "/" y sincroniza por rsync
+```
+
+Archivos: `deploy/docker-compose.yaml` (contenedor `portfolio-web`, etiquetas de Traefik para
+`guilleveron.com` y `www`, redirección HTTP→HTTPS y www→apex) y `deploy/nginx.conf`.
+En el servidor queda todo en `/home/ubuntu/portfolio-guillermo-veron/`.
+
+El asistente de IA corre en el mismo servidor como contenedor `portfolio-assistant`
+(`api.guilleveron.com`): es el mismo código del Worker, empaquetado con esbuild y ejecutado con
+el adaptador `worker/node/server.mjs`. Las claves salen de `worker/.dev.vars` y viajan al
+servidor como `assistant.env` (permisos 600, fuera de git). Desplegarlo en Cloudflare sigue
+siendo posible (`worker/README.md`); en ese caso definir `NUXT_PUBLIC_ASSISTANT_URL` en `.env.deploy`.
+
+DNS en Cloudflare (una vez): registros `A` de `guilleveron.com` y de `api` a `57.129.104.8`, y
+`CNAME` de `www` a `guilleveron.com`. Dejar los tres **sin proxy (nube gris)** al menos hasta
+que Traefik obtenga los certificados; después se puede activar el proxy con SSL "Full (strict)".
 
 ## Actualizar contenido
 
 1. Editar `data/profile.*.ts` o `data/projects.*.ts` (ambos idiomas).
-2. Reemplazar `public/CV_Gerente_IT_Guillermo_Verón.pdf` si cambia el CV.
+2. Reemplazar los CV en `public/` si cambian: `CV_Gerente_IT_Guillermo_Verón.pdf` (español) y
+   `CV_Head_of_Development_Guillermo_Verón_EN.pdf` (inglés). Las fuentes `.docx` viven en
+   `~/Documents/Personales/`; el PDF se exporta desde Word.
 3. Si cambió el contenido y el asistente está desplegado: `npm run knowledge` y volver a
    desplegar el Worker.

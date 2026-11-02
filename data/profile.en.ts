@@ -22,8 +22,8 @@ export const en: SiteContent = {
     phone: '+595 962 292 551',
     phoneHref: 'tel:+595962292551',
     photo: '/img/guillermo-veron-352.webp',
-    cvFile: 'CV_Gerente_IT_Guillermo_Verón.pdf',
-    cvLabel: 'Download CV (PDF, Spanish)',
+    cvFile: 'CV_Head_of_Development_Guillermo_Verón_EN.pdf',
+    cvLabel: 'Download CV (PDF)',
   },
   hero: {
     greeting: "Hi, I'm Guillermo.",

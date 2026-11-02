@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // Con dominio propio: NUXT_PUBLIC_SITE_URL=https://midominio.com y NUXT_APP_BASE_URL=/
-const SITE_URL = (process.env.NUXT_PUBLIC_SITE_URL || 'https://guilleveron.github.io/portfolio-guillermo-veron').replace(/\/$/, '')
+const SITE_URL = (process.env.NUXT_PUBLIC_SITE_URL || 'https://guilleveron.com').replace(/\/$/, '')
 
 export default defineNuxtConfig({
   devtools: { enabled: false },

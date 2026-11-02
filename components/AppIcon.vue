@@ -23,6 +23,14 @@
       <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5a5.2 5.2 0 0 0-1.3-3.6 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 1.6 5.4 1.9 5.4 1.9a4.8 4.8 0 0 0-.1 3.5A5.2 5.2 0 0 0 4 9c0 3.5 3 5.5 6 5.5a4.8 4.8 0 0 0-1 3.5v4" />
       <path d="M9 18c-4.5 2-5-2-7-2" />
     </template>
+    <template v-else-if="name === 'bot'">
+      <path d="M12 8V4H8" />
+      <rect x="4" y="8" width="16" height="12" rx="2" />
+      <path d="M2 14h2" />
+      <path d="M20 14h2" />
+      <path d="M15 13v2" />
+      <path d="M9 13v2" />
+    </template>
     <template v-else-if="name === 'download'">
       <path d="M12 3v12" />
       <path d="m7 10 5 5 5-5" />
