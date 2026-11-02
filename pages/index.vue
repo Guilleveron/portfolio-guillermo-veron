@@ -1,34 +1,47 @@
 <template>
-  <div class="dark:bg-gray-900 mt-6">
-    <div class="max-w-screen-lg md:flex mx-auto dark:bg-gray-900">
-      <div class="md:w-1/3 p-2 md:flex md:justify-center">
-        <AuthorCard />
-      </div>
-      <div class="md:w-2/3 px-0 sm:px-2">
-        <AuthorIntro></AuthorIntro>
-        <Expertise></Expertise>
-        <TimeLine></TimeLine>
-        <TimeLineEducation></TimeLineEducation>
-      </div>
-    </div>
+  <div>
+    <HeroSection />
+    <AboutSection />
+    <CompetenciesSection />
+    <ExperienceSection />
+    <ProjectsSection />
+    <EducationSection />
+    <ContactSection />
   </div>
 </template>
 
-<script setup>
-const appConfig = useAppConfig()
+<script setup lang="ts">
+const { site, locale } = useSiteContent()
+const { public: { siteUrl } } = useRuntimeConfig()
 
-useHead({
-  title: appConfig.siteMetadata.title,
-  meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+useSeoMeta({
+  title: () => site.value.meta.title,
+  description: () => site.value.meta.description,
+  ogTitle: () => site.value.meta.ogTitle,
+  ogDescription: () => site.value.meta.description,
+  ogUrl: `${siteUrl}/`,
+})
+
+useHead(() => ({
+  script: [
     {
-      name: 'description',
-      content: appConfig.siteMetadata.description,
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: site.value.identity.name,
+        alternateName: site.value.identity.shortName,
+        jobTitle: site.value.identity.roles[0],
+        description: site.value.meta.description,
+        url: `${siteUrl}/`,
+        email: `mailto:${site.value.identity.email}`,
+        sameAs: [site.value.identity.linkedin, site.value.identity.github],
+        worksFor: { '@type': 'Organization', name: 'Encom S.A.', url: 'https://encom.lat' },
+        address: { '@type': 'PostalAddress', addressLocality: 'Luque', addressCountry: 'PY' },
+        knowsLanguage: locale.value === 'en' ? ['Spanish', 'Guarani', 'English'] : ['Español', 'Guaraní', 'Inglés'],
+        knowsAbout: ['Software architecture', 'Kubernetes', 'Laravel', 'Spring Boot', 'Next.js', 'Metabase', 'Electronic invoicing (SIFEN)', 'LLM integration'],
+      }),
     },
   ],
-  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
-})
+}))
 </script>
-
-<style></style>

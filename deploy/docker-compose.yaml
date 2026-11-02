@@ -1,0 +1,88 @@
+# ============================================================================
+# guilleveron.com — portafolio estático servido por nginx detrás del Traefik
+# de Coolify (red `coolify`, certificados Let's Encrypt automáticos).
+#
+# En el servidor vive en /home/ubuntu/portfolio-guillermo-veron/:
+#   docker-compose.yaml   (este archivo)
+#   nginx.conf
+#   public/               (salida de `nuxi generate`, la sube scripts/deploy-ovh.sh)
+#   assistant/            (bundle del asistente + adaptador Node) y assistant.env (claves, 600)
+#
+# No construye nada en el servidor: el sitio se genera en la máquina local y se
+# sincroniza con rsync. Levantar/recrear: `docker compose up -d`.
+# ============================================================================
+
+# Nombre de proyecto explícito: evita colisiones con otros compose del servidor.
+name: portfolio
+
+services:
+  web:
+    image: nginx:1.27-alpine
+    container_name: portfolio-web
+    restart: unless-stopped
+    networks:
+      - coolify
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
+      # --- HTTPS apex. Router propio: así su certificado no depende de que `www` resuelva. ---
+      - "traefik.http.routers.portfolio.rule=Host(`guilleveron.com`)"
+      - "traefik.http.routers.portfolio.entrypoints=https"
+      - "traefik.http.routers.portfolio.tls=true"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portfolio.service=portfolio"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
+      # --- HTTPS www -> apex (certificado aparte) ---
+      - "traefik.http.routers.portfolio-www.rule=Host(`www.guilleveron.com`)"
+      - "traefik.http.routers.portfolio-www.entrypoints=https"
+      - "traefik.http.routers.portfolio-www.tls=true"
+      - "traefik.http.routers.portfolio-www.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portfolio-www.service=portfolio"
+      - "traefik.http.routers.portfolio-www.middlewares=portfolio-www-redirect"
+      # --- HTTP -> HTTPS ---
+      - "traefik.http.routers.portfolio-http.rule=Host(`guilleveron.com`) || Host(`www.guilleveron.com`)"
+      - "traefik.http.routers.portfolio-http.entrypoints=http"
+      - "traefik.http.routers.portfolio-http.middlewares=portfolio-https-redirect"
+      - "traefik.http.middlewares.portfolio-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.portfolio-https-redirect.redirectscheme.permanent=true"
+      # --- www -> apex (canónica única) ---
+      - "traefik.http.middlewares.portfolio-www-redirect.redirectregex.regex=^https://www\\.guilleveron\\.com/(.*)"
+      - "traefik.http.middlewares.portfolio-www-redirect.redirectregex.replacement=https://guilleveron.com/$${1}"
+      - "traefik.http.middlewares.portfolio-www-redirect.redirectregex.permanent=true"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Asistente de IA (el mismo código del Cloudflare Worker, corriendo en Node).
+  # Claves en ./assistant.env (no versionado; lo genera scripts/deploy-ovh.sh).
+  assistant:
+    build:
+      context: ./assistant
+      dockerfile: node/Dockerfile
+    image: portfolio-assistant:latest
+    container_name: portfolio-assistant
+    restart: unless-stopped
+    env_file: ./assistant.env
+    networks:
+      - coolify
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
+      - "traefik.http.routers.portfolio-api.rule=Host(`api.guilleveron.com`)"
+      - "traefik.http.routers.portfolio-api.entrypoints=https"
+      - "traefik.http.routers.portfolio-api.tls=true"
+      - "traefik.http.routers.portfolio-api.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.portfolio-api.service=portfolio-api"
+      - "traefik.http.services.portfolio-api.loadbalancer.server.port=8787"
+      - "traefik.http.routers.portfolio-api-http.rule=Host(`api.guilleveron.com`)"
+      - "traefik.http.routers.portfolio-api-http.entrypoints=http"
+      - "traefik.http.routers.portfolio-api-http.middlewares=portfolio-https-redirect"
+
+networks:
+  coolify:
+    external: true

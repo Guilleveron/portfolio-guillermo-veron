@@ -1,96 +1,34 @@
 <template>
-  <footer>
-    <div class="flex flex-col items-center mt-16">
-      <div class="flex mb-3 space-x-4">
-        <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="siteMetadata.github"
-          title="GitHub"
-        >
-          <span class="sr-only">github</span>
-          <img class="w-8 h-8" :src="withBase('/icon/github_new.svg')" />
+  <footer class="border-t border-gray-200/70 py-10 dark:border-navy-800">
+    <div class="container-site flex flex-wrap items-center justify-between gap-x-10 gap-y-6 text-sm text-ink-soft dark:text-gray-400">
+      <div>
+        <p class="font-medium text-ink dark:text-gray-200">{{ site.identity.name }}</p>
+        <p>© {{ year }} · {{ t('footer.rights') }}</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <a :href="`mailto:${site.identity.email}`" class="btn-ghost h-10 w-10 !p-0" :title="t('contact.email')">
+          <AppIcon name="mail" />
+          <span class="sr-only">{{ t('contact.email') }}</span>
         </a>
-        <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="siteMetadata.linkedin"
-          title="LinkedIn"
-        >
-          <span class="sr-only">Linkedin</span>
-          <img class="w-8 h-8" :src="withBase('/icon/linkeding.svg')" />
+        <a :href="site.identity.linkedin" target="_blank" rel="noopener noreferrer me" class="btn-ghost h-10 w-10 !p-0" title="LinkedIn">
+          <AppIcon name="linkedin" />
+          <span class="sr-only">LinkedIn</span>
         </a>
-        <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="`mailto:${siteMetadata.email}`"
-          title="Email"
-        >
-          <span class="sr-only">mail</span>
-          <img class="w-8 h-8" :src="withBase('/icon/mail.svg')"/>
-        </a>
-        <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="siteMetadata.twitter"
-          title="Twitter"
-        >
-          <span class="sr-only">twitter</span>
-         <img class="w-8 h-8" :src="withBase('/icon/twitterBlack.svg')" />
-        </a>
-        <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="siteMetadata.facebook"
-          title="Facebook"
-        >
-          <span class="sr-only">facebook</span>
-          <img class="w-8 h-8" :src="withBase('/icon/facebook.svg')"/>
-        </a>
-        <!-- <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="siteMetadata.youtube"
-          ><span class="sr-only">youtube</span>
-          <img class="w-8 h-8" :src="withBase('/icon/youtube.svg"
-        /></a> -->
-        <a
-          class="text-sm text-gray-500 transition hover:text-gray-600"
-          target="_blank"
-          rel="noopener noreferrer"
-          :href="siteMetadata.instagram"
-          title="Instagram"
-        >
-          <span class="sr-only">instagram</span>
-          <img class="w-8 h-8" :src="withBase('/icon/instagram.svg')"/>
+        <a :href="site.identity.github" target="_blank" rel="noopener noreferrer me" class="btn-ghost h-10 w-10 !p-0" title="GitHub">
+          <AppIcon name="github" />
+          <span class="sr-only">GitHub</span>
         </a>
       </div>
-      <div class="flex mb-2 space-x-2 px-2 text-center text-sm text-gray-500 dark:text-gray-400">
-        {{ t("footer.copyright") }} {{ new Date().getFullYear() }} &nbsp;•&nbsp;{{
-          siteMetadata.author
-        }}
-        - {{ siteMetadata.slogan }}
-      </div>
-      <div class="mb-8 text-sm text-gray-500 dark:text-gray-400">
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/mdrathik/tailwind-nuxtjs-starter-blog"
-        ></a>
-      </div>
+      <p class="max-w-xs text-xs sm:pr-28">
+        {{ t('footer.built') }}
+        <a href="https://github.com/Guilleveron/portfolio-guillermo-veron" class="link" target="_blank" rel="noopener noreferrer">{{ t('footer.source') }}</a>
+      </p>
     </div>
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { t } = useI18n()
-const { withBase } = useBaseUrl()
-const appConfig = useAppConfig()
-const siteMetadata = appConfig.siteMetadata
+const { site } = useSiteContent()
+const year = new Date().getFullYear()
 </script>

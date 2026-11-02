@@ -1,227 +1,128 @@
 {
-  "welcome": {
-    "title": "👋 ¡Hola, bienvenido!",
-    "description": "Soy Guillermo, una persona que ama la tecnología y busca constantemente crear software que mejore la vida de tantas personas como sea posible. Me especializo en crear software para clientes que van desde individuos y pequeñas empresas hasta grandes corporaciones empresariales. He desarrollado productos específicos que resuelven las necesidades comerciales de mis clientes. He trabajado en desarrollo de software, front-end/back-end web, ux/ui y gestión de bases de datos. Tengo un espíritu apasionado que junto con mis habilidades naturales para resolver problemas me ayudan a alcanzar mis sueños y deseos. Nunca estoy satisfecho con solo soñar, sino que tengo una necesidad innata de hacerlos realidad actuando en consecuencia paso a paso. Tengo una muy buena capacidad para aprender y adquirir nuevas habilidades. Puedes leer más detalles sobre mi biografía, experiencias, habilidades y estudios",
-    "link": "AQUÍ",
-    "cv": "CV_Español_Guillermo_Verón.pdf"
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "competencies": "Competencias",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "education": "Formación",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "skip": "Ir al contenido"
   },
-  "language": {
-    "english": "Inglés",
-    "spanish": "Español"
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro",
+    "system": "Según el sistema",
+    "toggle": "Cambiar tema"
+  },
+  "lang": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English"
   },
   "sections": {
-    "skills": "Habilidades",
+    "about": "Sobre mí",
+    "aboutEyebrow": "Perfil",
+    "competencies": "Competencias clave",
+    "competenciesEyebrow": "Qué hago",
+    "stack": "Stack tecnológico",
     "experience": "Experiencia",
-    "education": "Educación",
-    "currently": "Actualmente"
+    "experienceEyebrow": "Trayectoria",
+    "experienceTech": "Tecnología",
+    "experienceAdmin": "Administración, contabilidad y ventas",
+    "projects": "Proyectos destacados",
+    "projectsEyebrow": "Trabajo seleccionado",
+    "projectsIntro": "Casos de trabajo en los que participé. Los productos de mis empleadores se describen a nivel de rol, decisiones y arquitectura, sin exponer datos internos.",
+    "education": "Formación",
+    "educationEyebrow": "Estudios e idiomas",
+    "languages": "Idiomas",
+    "contact": "Contacto",
+    "contactEyebrow": "Hablemos",
+    "current": "Actual",
+    "technologies": "Tecnologías",
+    "role": "Rol",
+    "period": "Período",
+    "stackLabel": "Stack",
+    "viewCase": "Ver caso",
+    "viewSite": "Sitio",
+    "viewCode": "Código",
+    "viewStore": "App Store",
+    "highlights": "Puntos clave",
+    "workProjects": "Proyectos profesionales",
+    "personalProjects": "Proyectos personales y open source",
+    "backHome": "Volver al inicio",
+    "allProjects": "Todos los proyectos"
   },
-  "projects": {
-    "title": "Proyectos",
-    "subtitle": "Algunos de los proyectos que he construido o en los que he participado."
+  "caseStudy": {
+    "context": "Contexto",
+    "role": "Mi rol",
+    "challenges": "Desafíos",
+    "decisions": "Decisiones",
+    "outcome": "Resultado",
+    "architecture": "Arquitectura (simplificada)",
+    "disclaimer": "Este trabajo se realizó bajo acuerdos de confidencialidad. Describo mi rol, las decisiones y la arquitectura a nivel general, sin datos internos, cifras ni capturas de clientes.",
+    "moreOnRequest": "Puedo ampliar los detalles en una conversación, respetando las mismas restricciones."
+  },
+  "contact": {
+    "email": "Correo",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "Descargar CV (PDF)",
+    "copy": "Copiar correo",
+    "copied": "Copiado",
+    "phone": "Teléfono / WhatsApp",
+    "preview": "Ver CV"
+  },
+  "assistant": {
+    "open": "Preguntale al asistente sobre mí",
+    "close": "Cerrar asistente",
+    "title": "Asistente",
+    "subtitle": "Responde preguntas sobre mi perfil y experiencia",
+    "greeting": "Hola. Soy el asistente del portafolio de Guillermo. Puedo responder preguntas sobre su experiencia, proyectos, stack y disponibilidad.",
+    "placeholder": "Escribí tu pregunta…",
+    "send": "Enviar",
+    "stop": "Detener",
+    "thinking": "Pensando…",
+    "suggestions": [
+      "¿Cuál es su rol actual?",
+      "¿Qué experiencia tiene con IA?",
+      "¿Me pasás su CV?",
+      "Mostrame un gráfico de sus años por empresa",
+      "¿Cómo lo contacto?"
+    ],
+    "disclaimer": "Asistente con IA que responde a partir del contenido de este sitio. Puede equivocarse: confirmá los datos conmigo.",
+    "offline": "El asistente responde en modo básico (sin conexión al modelo de lenguaje). Para una respuesta completa, escribime directamente.",
+    "error": "No pude obtener una respuesta. Probá de nuevo en unos segundos.",
+    "rateLimited": "Hubo demasiadas consultas en poco tiempo. Probá más tarde.",
+    "noAnswer": "No tengo esa información en el sitio. Podés escribirle a Guillermo a {email}.",
+    "poweredBy": "Respuestas generadas con modelos de lenguaje en cascada",
+    "newChat": "Nueva conversación",
+    "via": "Respuesta de {provider}"
   },
   "footer": {
-    "copyright": "Copyright ©"
+    "rights": "Todos los derechos reservados.",
+    "built": "Sitio construido con Nuxt y Tailwind, publicado en GitHub Pages.",
+    "source": "Código fuente"
   },
-  "menu": [
-    { "name": "Inicio", "path": "/" },
-    { "name": "Proyectos", "path": "/projects" }
-  ],
-  "jobs": [
-    {
-      "title": "Jefe de Desarrollo",
-      "company": "Encom",
-      "url": "https://encom.app/",
-      "period": "Jul 2023 - Presente | Jefe de Desarrollo desde Feb. 2025",
-      "current": true,
-      "description": "Lidero el Departamento de Desarrollo, siendo responsable del mantenimiento, mejora continua y desarrollo de nuevas funcionalidades para la plataforma SaaS en producción de la empresa, diseñada para pequeñas y medianas empresas. El sistema incluye un panel administrativo, soluciones de punto de venta (web y aplicación móvil), integraciones de pago, facturación electrónica (Paraguay) y e-commerce. Superviso el liderazgo técnico del equipo, el diseño arquitectónico y aseguro la calidad, rendimiento y escalabilidad del sistema. Además, desarrollo y mantengo FACSIS, una aplicación de facturación electrónica destinada a la adopción masiva en Paraguay, construida como una Web App usando Next.js, TypeScript y PostgreSQL, y compilada con Capacitor.\nTecnologías: PHP, Laravel, Java, Spring Boot, JavaScript, Node.js, Jetstream, MySQL, PostgreSQL, Next.js, React.js, TypeScript, CSS, SASS, Tailwind, Bootstrap, HTML5, Git, GitHub, Capacitor."
-    },
-    {
-      "title": "Ingeniero de Software",
-      "company": "Code100",
-      "url": "https://code100.com.py/",
-      "period": "Enero 2023 - Junio 2023",
-      "current": false,
-      "description": "Desarrollo y mantenimiento de sistemas de facturación digital e integración con sistemas externos vía Api, DB y Middleware.\nTecnologías utilizadas: Java, SpringBoot, Javascript, Node js, Php, Laravel, PostgreSQL, Mysql, Bootstrap, Css, Html5, Git, Gitlab, Trello, Slack."
-    },
-    {
-      "title": "Ingeniero de Software",
-      "company": "Biggie Express",
-      "url": "http://www.biggie.com.py/",
-      "period": "Marzo 2022 - Diciembre 2022",
-      "current": false,
-      "description": "Desarrollo y mantenimiento de e-commerce, administración y call center de la empresa.\nTecnologías utilizadas: Nuxt Js, Vue js, Angular, Javascript, Php, Laravel, Jetstream, Mysql, Vuetify, Css, Sass, Tailwind, Bootstrap, Html5, Git, Github y Bitbucket."
-    },
-    {
-      "title": "Desarrollador Web Freelancer",
-      "company": "",
-      "url": "#",
-      "period": "Lanzado el 14 de marzo de 2020",
-      "current": false,
-      "description": "Desarrollo de software para empresas pequeñas y grandes.\nTecnologías utilizadas: Node js, Java, Vue js, Javascript, Mysql, PostgreSQL, Php, Html5, Css, Sass, Bootstrap."
-    }
-  ],
-  "educations": [
-    {
-      "degree": "Licenciatura en Ingeniería en Análisis de Sistemas Informáticos",
-      "university": "Universidad del Desarrollo Sustentable",
-      "url": "https://uds.edu.py/grado/ingenieria-en-analisis-de-sistemas-informaticos-",
-      "period": "Marzo 2020 - Presente"
-    },
-    {
-      "degree": "Contador Público",
-      "university": "Universidad del Desarrollo Sustentable",
-      "url": "https://uds.edu.py/grado/contaduria-publica-nacional",
-      "period": "2016 - 2020"
-    }
-  ],
-  "projectsList": [
-    {
-      "title": "E-commerce en Biggie Express",
-      "description": "Desarrollo de soluciones para proyectos comerciales. Análisis de requisitos de productos digitales. Implementación de arquitecturas y desarrollo Full Stack. Estudio y mejora del rendimiento, implementación de nuevas funcionalidades y corrección de errores del sitio web.",
-      "imgSrc": "",
-      "href": "http://www.biggie.com.py/",
-      "github": "#",
-      "tech": [
-        { "data": "Nuxt js" },
-        { "data": "Vue js" },
-        { "data": "Javascript" },
-        { "data": "Vuetify" },
-        { "data": "Typescript" },
-        { "data": "Sass" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "Git" },
-        { "data": "Bitbucket" }
-      ]
-    },
-    {
-      "title": "Aplicación de publicidad en tiendas locales",
-      "description": "Aplicación web (CRUD) de banners publicitarios para mostrar en las tiendas de la empresa Biggie Express. (proyecto no autorizado para exhibición pública)",
-      "imgSrc": "",
-      "href": "https://banners-sucursales.fly.dev/",
-      "github": "https://github.com/Guilleveron/banners-sucursales",
-      "tech": [
-        { "data": "Laravel" },
-        { "data": "Php" },
-        { "data": "Jetstream" },
-        { "data": "jQuery" },
-        { "data": "Javascript" },
-        { "data": "Tailwind" },
-        { "data": "Mysql" },
-        { "data": "Sass" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "Postman" },
-        { "data": "Git" },
-        { "data": "Bitbucket" }
-      ]
-    },
-    {
-      "title": "Aplicación de gestión",
-      "description": "Desarrollo y mantenimiento de la aplicación de administración de la empresa Biggie Express. (proyecto no autorizado para exhibición pública)",
-      "imgSrc": "",
-      "href": "https://admin.app.biggie.com.py/",
-      "github": "#",
-      "tech": [
-        { "data": "Angular js" },
-        { "data": "Javascript" },
-        { "data": "Typescript" },
-        { "data": "Bootstrap" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "API" },
-        { "data": "Git" },
-        { "data": "Bitbucket" }
-      ]
-    },
-    {
-      "title": "Aplicación web de call center",
-      "description": "Desarrollo y mantenimiento de aplicación web hecha en Angular js para uso del personal del call center en la empresa Biggie Express. (proyecto no autorizado para exhibición pública)",
-      "imgSrc": "",
-      "href": "https://callcenter.app.biggie.com.py/",
-      "github": "#",
-      "tech": [
-        { "data": "Angular js" },
-        { "data": "Javascript" },
-        { "data": "Typescript" },
-        { "data": "Bootstrap" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "API" },
-        { "data": "Git" },
-        { "data": "Bitbucket" }
-      ]
-    },
-    {
-      "title": "Sitio web personal",
-      "description": "Primera versión de mi sitio web personal, mostrando mis proyectos, experiencias, habilidades y gustos.",
-      "imgSrc": "",
-      "href": "https://guilleveron.github.io/portfolio-guillermo-veron/",
-      "github": "https://github.com/Guilleveron/portfolio-guillermo-veron",
-      "tech": [
-        { "data": "Nuxt js" },
-        { "data": "Vue js" },
-        { "data": "Javascript" },
-        { "data": "Tailwind" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "Git" },
-        { "data": "Github" }
-      ]
-    },
-    {
-      "title": "Frontend del sitio web monicionesliturgicas.com",
-      "description": "SPA para acceso público en monicionesliturgicas.com",
-      "imgSrc": "",
-      "href": "https://frontendmonicionesliturgicas.fly.dev/",
-      "github": "https://github.com/Guilleveron/FrontEndMonicionesLiturgicas",
-      "tech": [
-        { "data": "Vue js" },
-        { "data": "Javascript" },
-        { "data": "Bootstrap" },
-        { "data": "Sass" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "Git" },
-        { "data": "Github" }
-      ]
-    },
-    {
-      "title": "Administrador del sitio web monicioneslitúrgicas.com",
-      "description": "Backend de la página monicionesliturgicas.com",
-      "imgSrc": "",
-      "href": "https://backendmonicionesliturgicas.fly.dev/",
-      "github": "https://github.com/Guilleveron/BankEndMonicionesLiturgicas",
-      "tech": [
-        { "data": "Node js" },
-        { "data": "Express js" },
-        { "data": "Vue js" },
-        { "data": "Mysql" },
-        { "data": "Javascript" },
-        { "data": "Bootstrap" },
-        { "data": "Sass" },
-        { "data": "Css" },
-        { "data": "Html5" },
-        { "data": "Git" },
-        { "data": "Github" }
-      ]
-    },
-    {
-      "title": "API construida con Node Js",
-      "description": "API hecha para la página monicionesliturgicas.com",
-      "imgSrc": "",
-      "href": "https://apimonicionesliturgicas.fly.dev/api/moniciones",
-      "github": "https://github.com/Guilleveron/ApiMonicionesLiturgicas",
-      "tech": [
-        { "data": "Node js" },
-        { "data": "Express js" },
-        { "data": "Mysql" },
-        { "data": "Javascript" },
-        { "data": "Docker" },
-        { "data": "Postman" },
-        { "data": "Git" },
-        { "data": "Github" }
-      ]
-    }
-  ]
+  "notFound": {
+    "title": "Página no encontrada",
+    "text": "La página que buscás no existe o cambió de lugar.",
+    "back": "Volver al inicio"
+  },
+  "cards": {
+    "cv": "Currículum (PDF)",
+    "cvDesc": "Ver en pantalla o descargar",
+    "preview": "Ver"
+  },
+  "cv": {
+    "title": "Currículum de Guillermo Verón",
+    "prev": "Página anterior",
+    "next": "Página siguiente",
+    "loading": "Cargando el PDF…",
+    "error": "No se pudo mostrar el PDF. Podés abrirlo en otra pestaña o descargarlo.",
+    "openTab": "Abrir en pestaña",
+    "download": "Descargar"
+  }
 }
